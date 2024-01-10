@@ -1,0 +1,40 @@
+.dropdown{
+    /* border: 1px solid black; */
+    max-width: 1350px;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    top: 49px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-shadow: 0px 15px 10px -15px #111;  
+}
+.catogeries{
+    flex-grow: 1;
+}
+.catogeries ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    /* border: 1px solid black; */
+}
+.catogeries ul li{
+    list-style: none;
+    width: 25%;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.catogeries ul li:hover{
+    color: yellow;
+    font-weight: 600;
+}
+.dropimg{
+    width: 300px;
+    height: 300px;
+}
+.dropimg img{
+    width: 100%;
+}

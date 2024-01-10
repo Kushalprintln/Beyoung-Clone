@@ -1,0 +1,15 @@
+.fqcontainer{
+    max-width: 1350px;
+    margin: 10px auto;
+    cursor: pointer;
+
+}
+h2,.hidden h4{
+    color: #ffdd00 ;
+    text-transform: uppercase;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

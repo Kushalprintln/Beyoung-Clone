@@ -1,0 +1,25 @@
+.carousal{
+    display: flex;
+    position: relative;
+}
+.btndivleft,.btndivright{
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.btndivleft{
+    left: 0;
+}
+.btndivright{
+    right: 0;
+}
+.carousalContainer{
+    overflow-y: auto;
+}
+.innerContainer{
+    width: fit-content;
+    display: flex;
+    gap: 20px;
+}

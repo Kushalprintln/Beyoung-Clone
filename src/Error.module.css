@@ -1,0 +1,13 @@
+.error{
+   text-align: center;
+}
+.errorh{
+    font-size: 150px;
+    font-weight: 500;
+    margin: 0;
+    background: #434343;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+} 

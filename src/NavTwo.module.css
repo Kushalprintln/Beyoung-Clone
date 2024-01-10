@@ -1,0 +1,55 @@
+.navtwo{
+    padding: 10px;
+}
+.fixed{
+    padding: 10px;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: white;
+    top: 0;
+    animation: 0.5s linear 0s slidedown;
+}
+@keyframes slidedown {
+    from{
+        transform: translateY(-100%);
+        opacity: 0;
+    }to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.container{
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.logo{
+    width: 150px;
+    margin-right: 10px;
+}
+.left{
+    display: flex;
+    align-items: center;
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    padding: 12px 20px;
+    font-weight: 700;
+}
+.menu li:hover{
+    background-color: #f9eb28;
+}
+.right{
+ font-size: 20px;
+ display: flex;
+ gap: 16px;
+}

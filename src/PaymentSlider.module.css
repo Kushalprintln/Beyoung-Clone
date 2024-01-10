@@ -1,0 +1,10 @@
+.slider {
+    overflow: hidden;
+}
+.slidercontainer{
+    display: flex;
+}
+.slidercontainer img{
+    width: 80%;
+    margin:0 10px;
+}

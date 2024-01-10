@@ -1,0 +1,22 @@
+.footerCol{
+    color: #ffdd00;
+
+}
+.footerCol h3{
+    color: #ffdd00;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: left;
+}
+ul{
+    text-align: left;
+}
+.footerCol li{
+    list-style: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 0;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+.heading{
+    background: linear-gradient( 90deg, rgba(248, 235, 39, 0) 0%, #f8eb27 48.11%, rgba(248, 235, 39, 0) 100% );
+    text-align: center;
+}
+.heading p{
+    color: #000;
+    font-size: 25px;
+    font-weight: 800;
+    padding: 15px 0px;
+}
