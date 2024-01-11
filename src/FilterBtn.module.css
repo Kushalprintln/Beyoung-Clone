@@ -1,0 +1,37 @@
+.filterbtn{
+ /* border: 1px solid black; */
+ margin: 10px 0;
+ cursor: pointer;
+}
+.filheading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filheading span{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #434343;
+    text-transform: uppercase;
+}
+.colfilter{
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.sizefilter,.pricefilter{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.sizefilter span{
+    display: block;
+    line-height: 25px;
+    font-weight: 500;
+    color: #434343;
+    cursor: pointer;
+}

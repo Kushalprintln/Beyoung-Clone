@@ -3,8 +3,8 @@ import styles from './NavTwo.module.css'
 import image from '../images/beyonglogo.png'
 import { CiSearch,CiHeart  } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { FaSlash } from "react-icons/fa";
 import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 export default function NavTwo({catagories}){
         const [scrolled,setScrolled] = useState(false);
         const [dropvis, setDropvis] = useState(false);
@@ -31,7 +31,7 @@ export default function NavTwo({catagories}){
             <div className={styles.container}>
                 <div className={styles.left}>
                   {/* Have to link the logo with he home page. */}
-                    <img src={image} alt="geyoungLogo" className={styles.logo} />
+                    <Link to={''} style={{display:'flex'}}><img src={image} alt="BeyoungLogo" className={styles.logo} /></Link>
                     <ul className={styles.menu}>
                         <li onMouseOver={()=>{setDropvis(true),setSfor('Men')}} onMouseOut={()=>{setDropvis(false)}}>MEN</li>
                         <li onMouseOver={()=>{setDropvis(true),setSfor('Women')}} onMouseOut={()=>{setDropvis(false)}}>WOMEN</li>

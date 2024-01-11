@@ -1,0 +1,12 @@
+.filter{
+    /* border: 1px solid black; */
+    width: 25%;
+    padding: 0 10px;
+}
+.filter h3{
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #434343;
+    text-transform: uppercase;
+}

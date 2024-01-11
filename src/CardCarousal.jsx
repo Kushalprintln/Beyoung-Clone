@@ -10,7 +10,7 @@ export default function CardCarousal({data}){
                 <div className={styles.innerContainer}>
                     {/* <Card /> */}
                     {data && data.map((ele,idx)=>{
-                        return <Card key={idx} data = {ele}/>
+                        return <Card key={idx} br={true} data = {ele}/>
                     })}
                 </div>
             </div>

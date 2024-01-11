@@ -4,7 +4,7 @@
     cursor: pointer;
 
 }
-h2,.hidden h4{
+.heading h2,.hidden h4{
     color: #ffdd00 ;
     text-transform: uppercase;
 }

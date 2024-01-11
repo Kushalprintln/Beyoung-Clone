@@ -1,0 +1,10 @@
+.display{
+    /* border: 1px solid black; */
+    width: 75%;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10px;
+}

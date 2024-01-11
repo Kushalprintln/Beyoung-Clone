@@ -1,17 +1,18 @@
 import React from "react";
 import styles from './Card.module.css'
 import bbimg from '../images/full-sleeve-image-bb.jpg'
-export default function Card({data}){
+export default function Card({br,data}){
     const product = {...data};
     // console.log(data);
     // console.log('card pro' + product.name);
+    const brstyle = {border:'1px solid rgba(0, 0, 0, 0.4)',borderRadius:'15px'}
     const discount = Math.floor(Math.random()* (70 - 50 + 1) ) + 50;
     const inc = 100-discount;
     const incPrice = Math.floor((product.price*100)/inc);
 
     if(data){
         return (
-            <div className={styles.card}>
+            <div className={styles.card} style={br && brstyle}>
                 <img src={`${product.displayImage}`} alt="fullslieveimg" />
                 <div className={styles.details}>
                     <p className={styles.hed}>{product.name}</p>
