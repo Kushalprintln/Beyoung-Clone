@@ -8,6 +8,9 @@
     color: #ffdd00 ;
     text-transform: uppercase;
 }
+.heading h2{
+    font-size: 24px;
+}
 .heading{
     display: flex;
     align-items: center;

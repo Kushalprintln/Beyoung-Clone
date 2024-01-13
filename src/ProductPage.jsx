@@ -5,6 +5,9 @@ import styles from './Productpage.module.css';
 import Description from "./Description";
 import MainCarousal from "./MainCarousal";
 export default function ProductPage(){
+    async function gettingProduct(){
+        
+    }
     return (
     <>
     <MainContainer>

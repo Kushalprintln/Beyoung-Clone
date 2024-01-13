@@ -2,7 +2,6 @@ import React from "react";
 import Poster from "./Poster";
 import MainContainer from "./MainContainer";
 import CardCarousal from './CardCarousal';
-import Paymentslider from './PaymentSlider';
 import HeadingStrip from "./HeadingStrip";
 import FullBanner from './FullStripBanner';
 import { useEffect, useState } from 'react';
@@ -11,6 +10,8 @@ import shippingImage from '../images/free-shipping-desktop-view.jpg'
 import shirtposter from '../images/shirts-section-desktop-view.jpg'
 import menwomenposter from '../images/strip.jpg'
 import fullbanner from '../images/Bhuvan-strip-banner-desktop.jpg';
+import Slider from "./Slider";
+import Paymentslider from "./PaymentSlider";
 
 export default function Home(){
     const basicDom = 'https://academics.newtonschool.co/';
@@ -23,7 +24,7 @@ export default function Home(){
     const header = {projectId:'f104bi07c490'};
     const [products,setPro] = useState([]);
     const [Womproducts,setWomPro] = useState([]);
-
+ 
     async function getProData(){
         let prores = await fetch(proURL,{
           method:'GET',
@@ -38,10 +39,11 @@ export default function Home(){
           headers: header
         });
         let womdata = await reswomen.json();
-        console.log(womdata);
+        // console.log(womdata);
         setWomPro(womdata.data);
     
       }
+
       useEffect(()=>{
         getProData();
       },[])
@@ -54,6 +56,7 @@ export default function Home(){
             <HeadingStrip heading='FOR MEN'/>
             <CardCarousal data={products}/>
             <Paymentslider/>
+            {/* <Slider style={{width:'90%',margin:'0 auto'}}/> */}
             <img src={menwomenposter} alt="" />
             <HeadingStrip heading='FOR WOMEN'/>
             <CardCarousal data={Womproducts}/>

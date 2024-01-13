@@ -16,7 +16,7 @@ export default function FilterBtn({type}){
                     <Coloricon clr='red'/>
                     <Coloricon clr='blue'/>
                     <Coloricon clr='green'/>
-                    <Coloricon clr='pink'/>
+                    <Coloricon clr='purple'/>
                 </div>}
             </div>
         )

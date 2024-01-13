@@ -2,6 +2,9 @@
     /* border: 1px solid black; */
     width: 75%;
 }
+.display h2{
+    text-transform: uppercase;
+}
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
