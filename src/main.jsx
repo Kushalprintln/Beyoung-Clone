@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<Home/>}/>
       <Route path='search/:gender' element={<SearchPage/>}/>
       <Route path='search/:gender/:subCategory' element={<SearchPage/>}/>
-      <Route path='product' element={<ProductPage/>}/>
+      <Route path=':productID' element={<ProductPage/>}/>
       <Route path='*' element={<ErrorPage/>}/>
       </Route>
     </Routes>

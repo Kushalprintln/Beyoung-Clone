@@ -4,7 +4,19 @@
 }
 .display h2{
     text-transform: uppercase;
+    font-size: 20px;
+    color: #000;
+    padding-bottom: 15px;
+    font-weight: 600;
 }
+.display p{
+    color: #000;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 22px;
+}
+
 .cardContainer{
     display: flex;
     flex-wrap: wrap;

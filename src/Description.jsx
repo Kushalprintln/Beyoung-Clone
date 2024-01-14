@@ -2,15 +2,17 @@ import React from "react";
 import styles from './Description.module.css';
 import { CiHeart  } from "react-icons/ci";
 import Coloricon from "./Coloricon";
-export default function Description(){
+export default function Description({data}){
+    const data1 = {...data};
+    console.log(data1);
     return(
         <div className={styles.productdescription}>
             <div className={styles.desheading}>
-                <h1>Lush Green Oversized Shacket for Men</h1>
+                <h1>{data1.name}</h1>
                 <div className={styles.heartico}><CiHeart size={'1.5em'} strokeWidth={'0.5'} /></div>
             </div>
             <div className={styles.prodetails}>
-                <span className={styles.typeof}>Shacket</span>
+                <span className={styles.typeof}>{data1.subCategory}</span>
                 <span className={styles.pricetag}>
                     <strong>₹ 1199</strong>
                     <small>₹ 2999</small>

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  UncontrolledCarousel,
-} from 'reactstrap';
+// import {UncontrolledCarousel,} from 'reactstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 function Slider({style}) {
   const [activeIndex, setActiveIndex] = useState(0);

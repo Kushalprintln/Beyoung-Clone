@@ -38,7 +38,7 @@ export default function NavTwo({catagories}){
                     <ul className={styles.menu}>
                         <li onMouseOver={()=>{setDropvis(true),setSfor('Men'),setselCat(Mencat)}} onMouseOut={()=>{setDropvis(false)}}><Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}>MEN</Link></li>
                         <li onMouseOver={()=>{setDropvis(true),setSfor('Women'),setselCat(Womencat)}} onMouseOut={()=>{setDropvis(false)}}><Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}>WOMEN</Link></li>
-                        <li onMouseOver={()=>{setDropvis(true)}} onMouseOut={()=>{setDropvis(false)}}>JOGGERS</li>
+                        {/* <li onMouseOver={()=>{setDropvis(true)}} onMouseOut={()=>{setDropvis(false)}}>JOGGERS</li> */}
                     </ul>
                 </div>
                 <div className={styles.right}>
