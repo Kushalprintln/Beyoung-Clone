@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './Display.module.css'
 import Card from "./Card";
-import { useParams } from "react-router-dom";
-export default function Display({pera,head,mainheading,data}){
-
+import ProductContext from "./ProductContext";
+export default function Display(){
+    const productData = useContext(ProductContext);
     return(
         <div className={styles.display}>
             <div>
-                <h2>{mainheading}</h2>
-                <p><strong>{head}</strong>{pera}</p>
+                <h2>{productData.pageHeading}</h2>
+                <p><strong>{productData.heading}</strong>{productData.pera}</p>
             </div>
             <div className={styles.cardContainer}>
-                {data && data.map((ele,idx)=>{
+                {productData.data.map((ele,idx)=>{
                     return <Card data={ele} key={idx}/>
                 })}
             </div>

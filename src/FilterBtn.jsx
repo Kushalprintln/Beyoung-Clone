@@ -1,24 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import styles from './FilterBtn.module.css';
 import Coloricon from "./Coloricon";
-export default function FilterBtn({type,col}){
+import ProductContext from "./ProductContext";
+export default function FilterBtn({type}){
     const [showfilter, setShowfilter] = useState(false);
+    const Pro = useContext(ProductContext);
+    function handleSort(event){
+        Pro.sortAlgoFun(event.target.value);
+    }
+
     if(type ==='color'){
         return(
-            <div className={styles.filterbtn} onClick={()=>{setShowfilter(prev=>!prev)}}>
-                <div className={styles.filheading}><span>COLOR</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
+            <div className={styles.filterbtn} >
+                <div className={styles.filheading} onClick={()=>{setShowfilter(prev=>!prev)}} ><span>COLOR</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
                 {showfilter && <div className={styles.colfilter}>
-                    {col && col.map((ele)=>{
-                        return <Coloricon clr={ele}/>
+                    {Pro.colors.map((ele,idx)=>{
+                        return <Coloricon key={idx} clr={ele} />
                     })}
                 </div>}
             </div>
         )
     }else if(type === 'size'){
         return(
-            <div className={styles.filterbtn} onClick={()=>{setShowfilter(prev=>!prev)}}>
-                <div className={styles.filheading}><span>SIZE</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
+            <div className={styles.filterbtn} >
+                <div className={styles.filheading} onClick={()=>{setShowfilter(prev=>!prev)}} ><span>SIZE</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
                 {showfilter && <div className={styles.sizefilter}>
                     <span>S</span>
                     <span>M</span>
@@ -30,11 +36,11 @@ export default function FilterBtn({type,col}){
         )
     }else if(type === 'price'){
         return(
-            <div className={styles.filterbtn} onClick={()=>{setShowfilter(prev=>!prev)}}>
-                <div className={styles.filheading}><span>PRICE</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
+            <div className={styles.filterbtn} >
+                <div className={styles.filheading} onClick={()=>{setShowfilter(prev=>!prev)}} ><span>PRICE</span><span><FaChevronDown size={'1.3em'} color="#000" style={{cursor:'pointer'}}/></span></div>
                 {showfilter && <div className={styles.pricefilter}>
-                    <span>Price : High-Low</span>
-                    <span>Price : Low-High</span>
+                    <span><input type="radio" name="sort" id="HTL" value={'ASD'} onChange={handleSort}/><label htmlFor="HTL">Price : Low-High</label></span>
+                    <span><input type="radio" name="sort" id="LTH" value={'DES'} onChange={handleSort}/><label htmlFor="LTH">Price : High-Low</label> </span>
                 </div>}
             </div>
         )

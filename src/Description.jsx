@@ -4,7 +4,6 @@ import { CiHeart  } from "react-icons/ci";
 import Coloricon from "./Coloricon";
 export default function Description({data}){
     const data1 = {...data};
-    console.log(data1);
     return(
         <div className={styles.productdescription}>
             <div className={styles.desheading}>

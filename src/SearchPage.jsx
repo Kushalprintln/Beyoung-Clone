@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainContainer from "./MainContainer";
 import FullBanner from "./FullStripBanner";
+import ProductContext from "./ProductContext";
 // CATAOGERIES MEN BANNER.
 import MenShirt from '../images/BB-shirt-category-banner-desktop-view_19_10_2023.jpg'
 import MenHoodies from '../images/Hoodies-desktop-view-banner_30_12_2023.jpg'
@@ -13,7 +14,6 @@ import MenTrack from '../images/GYM-Category-banner-desktop-view_09_09_2023_1920
 import MenTrouser from '../images/Chinos-banner-desktop-view_29_12_2023_1920x475.jpg'
 import MenTshirt from '../images/Printed-T-Shirts-desktop-view_22_12_2023_1920x475.jpg'
 import MenAll from '../images/card-banner-desktop-view4.gif'
-
 // CATAODERIES WOMEN BANNER
 import WomenJeans from '../images/Jeggings_Category_Banner_Desktop_11_3_2022_1920x475.jpg'
 import WomenClothing from '../images/Women-clothing-banner-desktop-view_28_07_2023_1920x475.jpg'
@@ -22,7 +22,7 @@ import WomenShirt from '../images/Women_s-Shirt-Category-Banner-DESKTOP-VIEW_12_
 import WomenTshirt from '../images/Printed-tshirt-categry-desktop-view-banner_16_08_2023_1920x475.jpg'
 
 import Filter from "./Filter";
-import Display from "./display";
+import Display from "./Display";
 import styles from './SearchPage.module.css'
 import { useParams } from "react-router-dom";
 
@@ -56,9 +56,10 @@ export default function SearchPage(){
     const [banner,setBanner] = useState();
     const [heading,setHeading] = useState();
     const [pera,setPera] = useState();
-    const [searchHeading,setSearchHeading] = useState();
+    const [pageHeading,setPageHeading] = useState();
     const [SearchData, setSearchData] = useState([]);
-    const [colorarr, setColrArr] = useState([]);
+    const [colorArr, setColrArr] = useState([]);
+    const [sortAlgo,SetSortAlgo]= useState('');
     const params = useParams();
     let blankArr = [];
     const filter = JSON.stringify(params);
@@ -81,13 +82,13 @@ export default function SearchPage(){
         })
         setColrArr(blankArr);
     }
-    
+
     function SettingBanner(){
         if(params.subCategory === undefined){
-            setSearchHeading(`${params.gender}`)
+            setPageHeading(`${params.gender}`)
 
         }else{
-            setSearchHeading(`${params.subCategory} FOR ${params.gender} `)
+            setPageHeading(`${params.subCategory} FOR ${params.gender} `)
         }
         if(params.gender === 'Men'){
             if(params.subCategory === 'hoodie'){
@@ -179,19 +180,46 @@ export default function SearchPage(){
         }
     }
 
+    function sort(){
+        if(sortAlgo === 'ASD'){
+            let arr = SearchData.sort((a,b)=>a.price-b.price);
+            let temparr = [...arr];
+            setSearchData(temparr);
+        }
+        else if(sortAlgo === 'DES'){
+            let arr = SearchData.sort((a,b)=>b.price-a.price);
+            let temparr = [...arr];
+            setSearchData(temparr);
+        }
+    }
+
     useEffect(()=>{
         window.scrollTo(0, 0);
         SettingBanner();
-        gettingData();
-    },[params])
-    
+        gettingData();     
+    },[params]);
+
+    useEffect(()=>{
+        sort();
+    },[sortAlgo])
+
     return(
         <>
         <FullBanner img={banner}/>
         <MainContainer >
             <div className={styles.searchcontainer}>
-                <Filter colors= {colorarr}/>
-                <Display pera={pera} head={heading} mainheading={searchHeading} data={SearchData}/>
+            <ProductContext.Provider
+            value={{data:SearchData,
+                pageHeading:pageHeading,
+                pera:pera,
+                heading:heading,
+                colors:colorArr,
+                sortAlgoFun:SetSortAlgo,
+            }}
+            >
+                <Filter/>
+                <Display/>
+            </ProductContext.Provider>
             </div>
         </MainContainer>
         </>

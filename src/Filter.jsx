@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from './Filter.module.css'
 import FilterBtn from "./FilterBtn";
+
 export default function Filter({colors}){
     
     return(

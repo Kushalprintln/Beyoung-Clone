@@ -36,8 +36,8 @@ export default function NavTwo({catagories}){
                   {/* Have to link the logo with he home page. */}
                     <Link to={''} style={{display:'flex'}}><img src={image} alt="BeyoungLogo" className={styles.logo} /></Link>
                     <ul className={styles.menu}>
-                        <li onMouseOver={()=>{setDropvis(true),setSfor('Men'),setselCat(Mencat)}} onMouseOut={()=>{setDropvis(false)}}><Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}>MEN</Link></li>
-                        <li onMouseOver={()=>{setDropvis(true),setSfor('Women'),setselCat(Womencat)}} onMouseOut={()=>{setDropvis(false)}}><Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}>WOMEN</Link></li>
+                        <Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}><li onMouseOver={()=>{setDropvis(true),setSfor('Men'),setselCat(Mencat)}} onMouseOut={()=>{setDropvis(false)}}>MEN</li></Link>
+                        <Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}><li onMouseOver={()=>{setDropvis(true),setSfor('Women'),setselCat(Womencat)}} onMouseOut={()=>{setDropvis(false)}}>WOMEN</li></Link>
                         {/* <li onMouseOver={()=>{setDropvis(true)}} onMouseOut={()=>{setDropvis(false)}}>JOGGERS</li> */}
                     </ul>
                 </div>

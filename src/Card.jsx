@@ -8,7 +8,6 @@ export default function Card({br,data}){
     const discount = Math.floor(Math.random()* (70 - 50 + 1) ) + 50;
     const inc = 100-discount;
     const incPrice = Math.floor((product.price*100)/inc);
-    console.log(product);
 
     if(data){
         return (
