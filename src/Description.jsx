@@ -23,9 +23,9 @@ export default function Description({data}){
             <div className={styles.colorselect}>
                 <h1>COLOR : <span>Green</span></h1>
                 <div className={styles.coloroption}>
-                    <Coloricon clr='red'/>
+                    {/* <Coloricon clr='red'/>
                     <Coloricon clr='blue'/>
-                    <Coloricon clr='green'/>
+                    <Coloricon clr='green'/> */}
                 </div>
             </div>
             <div className={styles.sizeopt}>

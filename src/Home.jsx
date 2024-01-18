@@ -16,7 +16,7 @@ import Paymentslider from "./PaymentSlider";
 export default function Home(){
     const basicDom = 'https://academics.newtonschool.co/';
     const categoriesApi = 'api/v1/ecommerce/clothes/categories';
-    const productApi = 'api/v1/ecommerce/clothes/products';
+    const productApi = 'api/v1/ecommerce/clothes/products?filter={"gender":"Men"}';
     const productwomen = 'api/v1/ecommerce/clothes/products?filter={"gender":"Women"}'
     const catURL = `${basicDom}${categoriesApi}`;
     const proURL = `${basicDom}${productApi}`;

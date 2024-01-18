@@ -1,0 +1,14 @@
+.unsel{
+    display: block;
+    line-height: 25px;
+    font-weight: 500;
+    color: #434343;
+    cursor: pointer;
+}
+.sel{
+    display: block;
+    line-height: 25px;
+    font-weight: 700;
+    color: #3cb043;
+    cursor: pointer;
+}

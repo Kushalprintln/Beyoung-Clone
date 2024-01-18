@@ -53,21 +53,61 @@ const p = ['Mens Hoodies at Beyoung are made from rigorously sourced cotton flee
 ]
 
 export default function SearchPage(){
+
+    // SETTING BANNER HEADING PERA PAGEHEAING.
     const [banner,setBanner] = useState();
     const [heading,setHeading] = useState();
     const [pera,setPera] = useState();
     const [pageHeading,setPageHeading] = useState();
+
+    // BLANK DATA AND COLOR ARRAY;
     const [SearchData, setSearchData] = useState([]);
     const [colorArr, setColrArr] = useState([]);
+    
+    //SORTING FOR PRICE COLOR AND SIZE;
     const [sortAlgo,SetSortAlgo]= useState('');
+    const [selectedColor, setSelectedColor] = useState('');
+    const [selectedSize, setSelectedSize] = useState('');
+
+    // GETTING PARAMS;
     const params = useParams();
+    
+    // INITIALLISING THE URL AND HEADERS;
+    let filter = '';
+    let URL = '';
+    let header = {};
     let blankArr = [];
-    const filter = JSON.stringify(params);
 
-     // const URL = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter={"gender":"${params.gender}","subCategory":"${params.subCategory}"}&limit=150`;
-    const URL = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter=${filter}&limit=50`;
-    const header = {projectId:'f104bi07c490'};
+    /*
+    MISTAKE I WAS DOING HERE 
+    1) I WAS CHANGE THE COLOR AND WITH THAT COLOR I WAS CHANGING THE ANOTHER STATE FILTERPARMS
+    2) WITH THAT FILTER PARAMS I WAS TRYING THE CHANGE THE STRING WITH JSON.Stringify;
+    3) I DONT HAVE TO DO THIS BCZ EVERY TIME MY COLOR OR SIZE STATE IS CHANGING I CAN DIRELCY SET IT IN LOCAT VARIABLE.
+    4) IN THE SORT METHORD SORTING FUNCTION IS CHANGE THE DATA AS PER THE ALGO SO WAHT AS CORRET.
+    */
 
+    // FUNCTION FOR SETTING THE URL
+    function settingURL(){
+        if(selectedColor === '' && selectedSize === ''){
+            let newobj = {...params}
+            filter = JSON.stringify(newobj);
+        }else if(selectedColor !== '' && selectedSize === ''){
+            let newobj = {...params,color:selectedColor}
+            filter = JSON.stringify(newobj);
+        }
+        else if(selectedColor === '' && selectedSize !== ''){
+            let newobj = {...params,size:selectedSize}
+            filter = JSON.stringify(newobj);
+        }
+        else if(selectedColor !== '' && selectedSize !== ''){
+            let newobj = {...params,color:selectedColor,size:selectedSize}
+            filter = JSON.stringify(newobj);
+        }
+        URL = `https://academics.newtonschool.co/api/v1/ecommerce/clothes/products?filter=${filter}&limit=50`;
+        header = {projectId:'f104bi07c490'};
+    }
+
+    //==========DATA FETCHING AFTER SETTING URL===============
     async function gettingData(){
         let searchResp = await fetch(URL,{
             method:'GET',
@@ -75,6 +115,7 @@ export default function SearchPage(){
           });
         let searchData = await searchResp.json();
         setSearchData(searchData.data);
+        console.log(searchData.data);
         searchData.data.map((obj)=>{
             if(!blankArr.includes(obj.color.toLowerCase())){
                 blankArr.push(obj.color.toLowerCase());
@@ -82,6 +123,7 @@ export default function SearchPage(){
         })
         setColrArr(blankArr);
     }
+    //==============SETTING BANNERS AND THE PERAGRAPH============
 
     function SettingBanner(){
         if(params.subCategory === undefined){
@@ -180,6 +222,32 @@ export default function SearchPage(){
         }
     }
 
+    //==============CLEAR PREVIOUS FILTERS=========
+
+    function clearAllFilter(){
+        SetSortAlgo('');
+        setSelectedColor('');
+        setSelectedSize('');
+    }
+
+    //===============USEEFFECT ON PARAM CHANGE==========
+
+    useEffect(()=>{
+        settingURL();
+        window.scrollTo(0, 0);
+        SettingBanner();
+        clearAllFilter();
+        gettingData();   
+    },[params]);
+
+    //=================USEEFFECT ON COLOR AND SIZE=========
+
+    useEffect(()=>{
+        settingURL();
+        gettingData();
+    },[selectedColor,selectedSize])
+
+    //========SORTING LOGIC=====================
     function sort(){
         if(sortAlgo === 'ASD'){
             let arr = SearchData.sort((a,b)=>a.price-b.price);
@@ -192,21 +260,17 @@ export default function SearchPage(){
             setSearchData(temparr);
         }
     }
-
-    useEffect(()=>{
-        window.scrollTo(0, 0);
-        SettingBanner();
-        gettingData();     
-    },[params]);
-
     useEffect(()=>{
         sort();
     },[sortAlgo])
+    
+    //===========RETURNING=======================
 
     return(
         <>
         <FullBanner img={banner}/>
         <MainContainer >
+            {filter}
             <div className={styles.searchcontainer}>
             <ProductContext.Provider
             value={{data:SearchData,
@@ -214,7 +278,9 @@ export default function SearchPage(){
                 pera:pera,
                 heading:heading,
                 colors:colorArr,
-                sortAlgoFun:SetSortAlgo,
+                sortAlogSelection:[sortAlgo,SetSortAlgo],
+                colorSelection:[selectedColor,setSelectedColor],
+                sizeSelection:[selectedSize,setSelectedSize]
             }}
             >
                 <Filter/>
