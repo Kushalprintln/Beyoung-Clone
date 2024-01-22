@@ -15,8 +15,17 @@
 .btndivright{
     right: 0;
 }
+.leftbtn,.rightbtn{
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
 .carousalContainer{
     overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.carousalContainer::-webkit-scrollbar{
+    display: none;
 }
 .innerContainer{
     width: fit-content;

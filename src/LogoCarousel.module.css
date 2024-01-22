@@ -1,0 +1,50 @@
+.logoheading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.line{
+    width: 33%;
+    flex-grow: 1;
+}
+.line hr{
+    height: 3px;
+    background: #f8eb27;
+    border: none;
+}
+.logoCarousel{
+    margin-bottom: 90px;
+}
+.featured{
+    background: #fff;
+    padding: 0 10px;
+    letter-spacing: 0.9px;
+    font-size: 30px;
+    font-weight: 800;
+}
+.slider{
+    overflow: hidden;
+    /* border: 1px solid black; */
+    display: flex;
+}
+.slidercontainer{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: fit-content;
+    /* gap: 120px; */
+    animation: scroll 15s linear infinite;
+}
+.slidercontainer img{
+ width: 200px;
+ margin-left: 120px;
+}
+@keyframes scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}

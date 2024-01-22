@@ -84,6 +84,7 @@ export default function SearchPage(){
     2) WITH THAT FILTER PARAMS I WAS TRYING THE CHANGE THE STRING WITH JSON.Stringify;
     3) I DONT HAVE TO DO THIS BCZ EVERY TIME MY COLOR OR SIZE STATE IS CHANGING I CAN DIRELCY SET IT IN LOCAT VARIABLE.
     4) IN THE SORT METHORD SORTING FUNCTION IS CHANGE THE DATA AS PER THE ALGO SO WAHT AS CORRET.
+    5) BESAUSE IT WILL CREATE A STATE MUTATION.
     */
 
     // FUNCTION FOR SETTING THE URL
@@ -115,7 +116,7 @@ export default function SearchPage(){
           });
         let searchData = await searchResp.json();
         setSearchData(searchData.data);
-        console.log(searchData.data);
+        // console.log(searchData.data);
         searchData.data.map((obj)=>{
             if(!blankArr.includes(obj.color.toLowerCase())){
                 blankArr.push(obj.color.toLowerCase());

@@ -12,6 +12,7 @@ import menwomenposter from '../images/strip.jpg'
 import fullbanner from '../images/Bhuvan-strip-banner-desktop.jpg';
 import Slider from "./Slider";
 import Paymentslider from "./PaymentSlider";
+import LogoCarousel from "./LogoCarousel";
 
 export default function Home(){
     const basicDom = 'https://academics.newtonschool.co/';
@@ -66,6 +67,7 @@ export default function Home(){
         <MainContainer>
             <HeadingStrip heading='FOR WOMEN'/>
             <CardCarousal data={products}/>
+            <LogoCarousel/>
         </MainContainer>
         </>
     )
