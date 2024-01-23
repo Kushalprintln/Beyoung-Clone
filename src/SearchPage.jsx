@@ -71,6 +71,9 @@ export default function SearchPage(){
 
     // GETTING PARAMS;
     const params = useParams();
+
+    // SCROLL AND RESPONSIVE
+    const [scroll,setScroll]= useState(false);
     
     // INITIALLISING THE URL AND HEADERS;
     let filter = '';
@@ -244,6 +247,7 @@ export default function SearchPage(){
     //=================USEEFFECT ON COLOR AND SIZE=========
 
     useEffect(()=>{
+        window.scrollTo(0, 0);
         settingURL();
         gettingData();
     },[selectedColor,selectedSize])
@@ -263,7 +267,26 @@ export default function SearchPage(){
     }
     useEffect(()=>{
         sort();
+        window.scrollTo(0, 0);
     },[sortAlgo])
+    // ===============RESPONSIVE===============
+    function scrollLogit(){
+        if(window.scrollY > 400){
+            setScroll(true);
+        }else{
+            setScroll(false);
+        }
+    }
+    function scrollfun(){
+        window.addEventListener("scroll", scrollLogit);
+    }
+
+    useEffect(()=>{
+        scrollfun();
+        return () => {
+            window.removeEventListener("scroll", scrollLogit);
+          };
+    },[])
     
     //===========RETURNING=======================
 
@@ -271,7 +294,6 @@ export default function SearchPage(){
         <>
         <FullBanner img={banner}/>
         <MainContainer >
-            {filter}
             <div className={styles.searchcontainer}>
             <ProductContext.Provider
             value={{data:SearchData,
@@ -281,11 +303,11 @@ export default function SearchPage(){
                 colors:colorArr,
                 sortAlogSelection:[sortAlgo,SetSortAlgo],
                 colorSelection:[selectedColor,setSelectedColor],
-                sizeSelection:[selectedSize,setSelectedSize]
+                sizeSelection:[selectedSize,setSelectedSize],
             }}
             >
-                <Filter/>
-                <Display/>
+                <Filter scroll={scroll} />
+                <Display scroll={scroll}/>
             </ProductContext.Provider>
             </div>
         </MainContainer>

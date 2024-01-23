@@ -9,3 +9,10 @@
 .container img{
     width: 100%;
 }
+@media screen and (max-width: 720px) {
+    .container{
+        margin: 20px auto;
+        padding: 0 15px;
+        gap: 20px;
+    }
+}

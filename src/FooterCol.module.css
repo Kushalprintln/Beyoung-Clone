@@ -1,6 +1,6 @@
 .footerCol{
     color: #ffdd00;
-
+    min-width: fit-content;
 }
 .footerCol h3{
     color: #ffdd00;
@@ -8,8 +8,9 @@
     margin-bottom: 20px;
     text-align: left;
     /* font-size: 18.72px; */
+    cursor: pointer;
 }
-ul{
+.footerCol ul{
     text-align: left;
 }
 .footerCol li{
@@ -20,4 +21,20 @@ ul{
     font-weight: 600;
     padding: 5px 0;
     cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+    .footerCol {
+        text-align: center;
+    }
+    .footerCol h3{
+        text-align: center;
+    }
+    .footerCol ul{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 550px) {
+    .footerCol h3{
+        font-size: 16px;
+    }
 }

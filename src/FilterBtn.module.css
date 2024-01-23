@@ -28,3 +28,15 @@
     flex-direction: column;
     gap: 2px;
 }
+@media screen and (max-width: 720px) {
+    .filterbtn{
+        /* border: 1px solid black; */
+        margin: 10px 0;
+        cursor: pointer;
+        width: 30%;
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    
+}

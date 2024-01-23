@@ -30,3 +30,8 @@
 .left,.login,.signup{
     cursor: pointer;
 }
+@media screen and (max-width: 450px) {
+    .left{
+        font-size: 12px;
+    }
+}

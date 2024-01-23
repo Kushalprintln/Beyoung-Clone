@@ -2,6 +2,11 @@
     /* border: 1px solid black; */
     width: 75%;
 }
+.displayscrolled{
+    /* border: 1px solid black; */
+    width: 75%;
+    margin-left: 26.5%;
+}
 .display h2{
     text-transform: uppercase;
     font-size: 20px;
@@ -22,4 +27,16 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10px;
+}
+@media screen and (max-width: 720px) {
+    .display{
+        /* border: 1px solid black; */
+        width: 100%;
+        margin-left: 0;
+    }
+    .displayscrolled{
+        /* border: 1px solid black; */
+        width: 100%;
+        margin-left: 0;
+    }
 }

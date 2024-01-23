@@ -17,12 +17,12 @@ export default function LogoCarousel(){
         <div className={styles.slider}>
             <div className={styles.slidercontainer}>
                 {logos.map((ele,idx)=>{
-                    return <img src={ele} alt="" />
+                    return <img src={ele} alt=""  key={idx}/>
                 })}
             </div>
             <div className={styles.slidercontainer}>
                 {logos.map((ele,idx)=>{
-                    return <img src={ele} alt="" />
+                    return <img src={ele} alt="" key={idx} />
                 })}
             </div>
         </div>

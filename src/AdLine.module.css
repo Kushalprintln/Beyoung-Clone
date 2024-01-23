@@ -8,3 +8,12 @@
 .offerline p{
 margin: 0;
 }
+
+@media screen and (max-width: 720px) {
+    .offerline{
+        padding: 3px 0;
+    }
+    .offerline p{
+        font-size: 12px;
+    }
+}

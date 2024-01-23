@@ -6,9 +6,6 @@ export default function CardCarousal({data}){
     const left = useRef();
     const right = useRef();
     const slidcontainer = useRef();
-    console.log(left)
-    console.log(right);
-    console.log(slidcontainer)
     function scrollL(){
         slidcontainer.current.scrollLeft -= 300;
     }

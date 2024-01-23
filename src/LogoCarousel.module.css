@@ -48,3 +48,37 @@
         transform: translateX(-100%);
     }
 }
+
+@media screen and (max-width: 720px) {
+    .featured{
+        background: #fff;
+        padding: 0 10px;
+        letter-spacing: 0.9px;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    .slidercontainer img{
+        width: 150px;
+        margin-left: 90px;
+    }
+    .logoCarousel{
+        margin-bottom: 50px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .featured{
+        background: #fff;
+        padding: 0 10px;
+        letter-spacing: 0.9px;
+        font-size: 16px;
+        font-weight: 800;
+        text-align: center;
+    }
+    .slidercontainer img{
+        width: 100px;
+        margin-left: 60px;
+    }
+    .logoCarousel{
+        margin-bottom: 30px;
+    }
+}

@@ -12,14 +12,16 @@
     justify-content: space-between;
     box-shadow: 0px 15px 10px -15px #111;  
     z-index: 100;
+    height: fit-content;
 }
 .catogeries{
     flex-grow: 1;
+    /* border: 1px solid black; */
 }
 .catogeries ul{
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* border: 1px solid black; */
 }
 .catogeries ul li{
@@ -38,4 +40,33 @@
 }
 .dropimg img{
     width: 100%;
+}
+.commingsoon{
+    margin: 0 auto;
+}
+.commingsoon img{
+    width: 300px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1130px) {
+    .dropdown{
+        top: 46px;
+    }
+    .catogeries ul li{
+        list-style: none;
+        width: 50%;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+    .catogeries{
+        width: 70%;
+    }
+    .dropimg{
+        width: 250px;
+        height: 250px;
+    }
+    
+}
+@media screen and (max-width: 1130px) {
+    
 }

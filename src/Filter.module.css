@@ -2,12 +2,39 @@
     /* border: 1px solid black; */
     width: 25%;
     padding: 0 10px;
-    position: sticky;
+    height: fit-content;
 }
-.filter h3{
+.filterfix{
+    position: fixed;
+    width: 21%;
+    background-color: white;
+    top: 68px;
+    left: 6.5%;
+    padding: 0 10px;
+    /* border: 1px solid black; */
+}
+.filter h3,.filterfix h3{
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 600;
     color: #434343;
     text-transform: uppercase;
+}
+@media screen and (max-width: 720px) {
+    .filter{
+        width: 100%;
+        display: flex;
+        /* border: 1px solid black; */
+    }
+    .filterfix{
+        display: flex;
+        width: 100%;
+        top: 65px;
+        left: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .filterfix{
+        top: 44px;
+    }
 }

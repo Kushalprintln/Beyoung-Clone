@@ -1,0 +1,59 @@
+.sidebar{
+    position: fixed;
+    background-color: white;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 70%;
+    animation: 0.3s linear 0s slidRight;
+}
+.closebtn{
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    /* border: 1px solid black; */
+    justify-content: center;
+    font-weight: 700;
+    padding: 5px 0;
+}
+.catfor{
+   display: flex;
+   justify-content: space-around;
+   /* border-bottom: 1px solid black; */
+   
+}
+.catfor span{
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    padding: 5px 0;
+    cursor: pointer;
+}
+.selected{
+    background-color: #ffdd00;
+}
+.subcats ul li{
+list-style: none;
+/* border: 1px solid black; */
+text-align: center;
+padding: 5px 0;
+cursor: pointer;
+text-transform: capitalize;
+border-bottom: 1px solid black;
+}
+.subcats ul li:hover{
+    background-color: #ffdd00;
+}
+@keyframes slidRight {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}

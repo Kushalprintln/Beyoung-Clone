@@ -39,7 +39,7 @@ function App() {
     <>
       <AdLine/>
       <NavOne/>
-      <NavTwo catagories={catagories}/>
+      <NavTwo/>
       <Outlet/>
       <Footer/>
     </>
