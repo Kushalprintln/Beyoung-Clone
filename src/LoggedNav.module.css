@@ -1,0 +1,119 @@
+.lognav{
+    /* border: 1px solid black; */
+    width: 250px;
+    position: relative;
+}
+.lognavfix{
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    height: 100%;
+    z-index: 1000;
+    animation: 0.3s linear 0s slidRight;
+
+}
+@keyframes slidRight {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes slidLeft {
+    0%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+}
+.profilelogo{
+    width: 250px;
+    height: 200px;
+    /* border: 1px solid black; */
+    background-color: #d5d5d5;
+    padding: 20px;
+    text-align: center;
+}
+.initials{
+    font-size: 50px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #141414;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.name{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #070707;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 5px
+}
+.beyoungster{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: gray;
+}
+.navigation{
+    padding: 0px 10px;
+    border: 1px solid #d4d5d5;
+    font-size: 14px;
+}
+.navigation ul{
+    list-style: none;
+}
+.navigation li{
+    padding: 20px 0px;
+    border-bottom: 1px solid #d5d5d5;
+    color: #746f6f;
+}
+.active{
+    font-weight: 600;
+    color: #000;
+}
+.logoutbtn{
+    background: #feeb00;
+    padding: 3% 38%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #070707;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    margin: 10px 0;
+}
+.slidebtn{
+    position: absolute;
+    /* border: 1px solid black; */
+    right: -20px;
+    top: 130px;
+    padding: 10px 5px;
+    height: 70px;
+    border-radius: 0 10px 10px 0;
+    background-color: #d5d5d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

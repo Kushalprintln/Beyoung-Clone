@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from './Filter.module.css'
 import FilterBtn from "./FilterBtn";
 
-export default function Filter({scroll}){
+export default function Filter(){
     const [small,setSmall] = useState(false);
     function settingSize(){
         if(window.innerWidth < 720 ){
@@ -19,7 +19,8 @@ export default function Filter({scroll}){
         resize();
     },[])
     return(
-        <div className={scroll ? styles.filterfix   : styles.filter}>
+        <div className={styles.filtercontainer}>
+        <div className={ styles.filter}>
             {!small && <>
             <h3>FILTER</h3>
             <hr />
@@ -30,5 +31,7 @@ export default function Filter({scroll}){
             <hr />
             <FilterBtn type={'price'} />
         </div>
+        </div>
+
     )
 }

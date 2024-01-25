@@ -14,11 +14,13 @@ export default function Paymentslider(){
     return (
         <div className={styles.slider}>
             <div className={styles.slidercontainer} >
-                {
-                    images.map((ele,idx)=>{
-                        return (<img src={ele} alt="" key={idx}/>);
-                    })
-                }
+                <img src={pay1} alt="" />
+                <img src={pay2} alt="" />
+                <img src={pay3} alt="" />
+                <img src={pay4} alt="" />
+                <img src={pay5} alt="" />
+                <img src={pay6} alt="" />
+                <img src={pay7} alt="" />
             </div>
         </div>
     )

@@ -1,18 +1,17 @@
+.filtercontainer{
+    /* border: 1px solid black; */
+    position: relative;
+    width: 25%;
+}
 .filter{
     /* border: 1px solid black; */
-    width: 25%;
+    width: 100%;
     padding: 0 10px;
     height: fit-content;
+    position: sticky;
+    top: 65px;
 }
-.filterfix{
-    position: fixed;
-    width: 21%;
-    background-color: white;
-    top: 68px;
-    left: 6.5%;
-    padding: 0 10px;
-    /* border: 1px solid black; */
-}
+
 .filter h3,.filterfix h3{
     font-size: 18px;
     letter-spacing: 1px;
@@ -21,20 +20,21 @@
     text-transform: uppercase;
 }
 @media screen and (max-width: 720px) {
-    .filter{
+    .filtercontainer{
         width: 100%;
-        display: flex;
         /* border: 1px solid black; */
+        position: sticky;
+        top: 64px;
+        background: white;
     }
-    .filterfix{
+    .filter{
+        /* border: 1px solid black; */
+        height: fit-content;
         display: flex;
-        width: 100%;
-        top: 65px;
-        left: 0;
     }
 }
 @media screen and (max-width: 480px) {
-    .filterfix{
+    .filtercontainer{
         top: 44px;
     }
 }

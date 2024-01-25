@@ -1,0 +1,9 @@
+.coupon{
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+.coupon img{
+    width: 60%;
+    min-width: 275px;
+}

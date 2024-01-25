@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import styles from './Display.module.css'
 import Card from "./Card";
 import ProductContext from "./ProductContext";
-export default function Display({scroll}){
+export default function Display(){
     const productData = useContext(ProductContext);
-
     return(
-        <div className={scroll ? styles.displayscrolled :styles.display} >
+        <div className={styles.display} >
             <div>
                 <h2>{productData.pageHeading}</h2>
                 <p><strong>{productData.heading}</strong>{productData.pera}</p>

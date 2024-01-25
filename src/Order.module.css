@@ -1,0 +1,18 @@
+.order{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.empty img{
+   width: 250px;
+   height: 250px;
+}
+.empty{
+    width: fit-content;
+    margin: 0 auto;
+}
+.emptyheading{
+    font-size: 30px;
+    border-bottom: 1px solid;
+    width: fit-content;
+    margin: 0 auto;
+}

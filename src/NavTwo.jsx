@@ -55,6 +55,13 @@ export default function NavTwo(){
                       <ul className={styles.menu}>
                         <Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}><li onMouseOver={()=>{setDropvis(true),setSfor('Men'),setselCat(Mencat)}} onMouseOut={()=>{setDropvis(false)}}>MEN</li></Link>
                         <Link to={`search/${sfor}`} style={{font:'inherit',color:'inherit',textDecoration:'none'}}><li onMouseOver={()=>{setDropvis(true),setSfor('Women'),setselCat(Womencat)}} onMouseOut={()=>{setDropvis(false)}}>WOMEN</li></Link>
+                        {/* {window.innerWidth>915 && <>
+                          <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>COMBO</li>
+                          <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>BB KE FAVOURITES</li>
+                          <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>WINTER WEARS</li>
+                          <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>NEW ARRIVALS</li>
+                        </>
+                        }  */}
                     </ul>
                     }
                 </div>
@@ -69,12 +76,4 @@ export default function NavTwo(){
         {sideBarVis && <Sidebar close={setsideBarVis}/>}
       </>
     )
-  }
-  {/* {window.innerWidth>915 && <>
-    <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>COMBO</li>
-    <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>BB KE FAVOURITES</li>
-    <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>WINTER WEARS</li>
-    <li onMouseOver={()=>{setDropvis(true),setselCat(false)}} onMouseOut={()=>{setDropvis(false)}}>NEW ARRIVALS</li>
-  </>
-  } */
   }

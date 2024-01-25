@@ -14,6 +14,7 @@ import MenTrack from '../images/GYM-Category-banner-desktop-view_09_09_2023_1920
 import MenTrouser from '../images/Chinos-banner-desktop-view_29_12_2023_1920x475.jpg'
 import MenTshirt from '../images/Printed-T-Shirts-desktop-view_22_12_2023_1920x475.jpg'
 import MenAll from '../images/card-banner-desktop-view4.gif'
+import Faqimg from '../images/Faqimage.png'
 // CATAODERIES WOMEN BANNER
 import WomenJeans from '../images/Jeggings_Category_Banner_Desktop_11_3_2022_1920x475.jpg'
 import WomenClothing from '../images/Women-clothing-banner-desktop-view_28_07_2023_1920x475.jpg'
@@ -73,7 +74,7 @@ export default function SearchPage(){
     const params = useParams();
 
     // SCROLL AND RESPONSIVE
-    const [scroll,setScroll]= useState(false);
+
     
     // INITIALLISING THE URL AND HEADERS;
     let filter = '';
@@ -270,23 +271,7 @@ export default function SearchPage(){
         window.scrollTo(0, 0);
     },[sortAlgo])
     // ===============RESPONSIVE===============
-    function scrollLogit(){
-        if(window.scrollY > 400){
-            setScroll(true);
-        }else{
-            setScroll(false);
-        }
-    }
-    function scrollfun(){
-        window.addEventListener("scroll", scrollLogit);
-    }
 
-    useEffect(()=>{
-        scrollfun();
-        return () => {
-            window.removeEventListener("scroll", scrollLogit);
-          };
-    },[])
     
     //===========RETURNING=======================
 
@@ -306,10 +291,11 @@ export default function SearchPage(){
                 sizeSelection:[selectedSize,setSelectedSize],
             }}
             >
-                <Filter scroll={scroll} />
-                <Display scroll={scroll}/>
+                <Filter  />
+                <Display />
             </ProductContext.Provider>
             </div>
+            <img src={Faqimg} alt="" />
         </MainContainer>
         </>
     )
