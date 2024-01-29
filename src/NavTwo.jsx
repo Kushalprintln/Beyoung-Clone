@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from './NavTwo.module.css'
 import image from '../images/beyonglogo.png'
-import { CiSearch,CiHeart  } from "react-icons/ci";
-import { MdOutlineShoppingCart } from "react-icons/md";
+// MATERIAL UI COMPONENTS
+import Stack from '@mui/material/Stack';
+import Badge from '@mui/material/Badge';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+
+// REACT ICON COMPONENTS
 import { IoMenu } from "react-icons/io5";
 import DropDown from "./DropDown";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import SearchModal from "./SearchModal";
 export default function NavTwo(){
         const [scrolled,setScrolled] = useState(false);
         const [dropvis, setDropvis] = useState(false);
         const [sideBarVis, setsideBarVis] = useState(false);
+        const [searchVis, setSearchVis] = useState(false);
         const [LoadFor, setLoadFor] = useState();
         const [sfor, setSfor] = useState('');
         const [selecedCat, setselCat] = useState('');
@@ -66,9 +74,30 @@ export default function NavTwo(){
                     }
                 </div>
                 <div className={styles.right}>
-                    <CiSearch size={"1.5em"} strokeWidth={'1'} />
-                    <CiHeart size={"1.5em"} strokeWidth={'1'} />
-                    <MdOutlineShoppingCart size={"1.5em"} />
+                <Stack spacing={2} direction="row">
+                    <SearchOutlinedIcon style={{cursor:'pointer'}} onClick={()=>{setSearchVis(prev=>!prev)}}/>
+                  <Badge sx={{
+                      "& .MuiBadge-badge": {
+                        color: "black",
+                        backgroundColor: "#ffdd00"
+                      }
+                    }} badgeContent={4}>
+                    <Link to={'myaccount/wishlist'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}>
+                    <FavoriteBorderOutlinedIcon style={{cursor:'pointer'}}/>
+                    </Link>
+                  </Badge>
+                  <Badge sx={{
+                      "& .MuiBadge-badge": {
+                        color: "black",
+                        backgroundColor: "#ffdd00"
+                      }
+                    }} badgeContent={4}>
+                    <Link to={'checkout'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}>
+                    <ShoppingCartOutlinedIcon style={{cursor:'pointer'}}/>
+                    </Link>
+                  </Badge>
+                </Stack>
+                {searchVis && <SearchModal/>}
                 </div>
                 {dropvis && <DropDown sfor={sfor} catagories={selecedCat} setvis={setDropvis}/>}
             </div>

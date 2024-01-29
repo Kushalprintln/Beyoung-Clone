@@ -5,6 +5,8 @@ import NavTwo from './NavTwo';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+// IMPORTING CONTEXT;
+import AuthContext from './AuthContext';
 function App() {
   const basicDom = 'https://academics.newtonschool.co/';
   const categoriesApi = 'api/v1/ecommerce/clothes/categories';
@@ -37,11 +39,13 @@ function App() {
 
   return (
     <>
+      <AuthContext.Provider value={{login:false}}>
       <AdLine/>
       <NavOne/>
       <NavTwo/>
       <Outlet/>
       <Footer/>
+      </AuthContext.Provider>
     </>
   )
 }

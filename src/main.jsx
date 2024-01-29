@@ -14,6 +14,10 @@ import Address from './Address.jsx'
 import Profile from './Profile.jsx'
 import Wishlist from './Wishlist.jsx'
 import Coupon from './Coupon.jsx'
+import Checkout from './Checkout.jsx'
+import Cart from './Cart.jsx'
+import Shipping from './Shipping.jsx'
+import Payment from './Payment.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -24,7 +28,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='search/:gender/:subCategory' element={<SearchPage/>}/>
       <Route path=':productID' element={<ProductPage/>}/>
       <Route path='/myaccount' element={<MyAccount/>}>
-        <Route path='order' index element={<Order/>}/>
+        <Route index element={<Order/>}/>
+        <Route path='order' element={<Order/>}/>
         <Route path='address' index element={<Address/>}/>
         <Route path='profile' index element={<Profile/>}/>
         <Route path='wishlist' index element={<Wishlist/>}/>
@@ -32,6 +37,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Route>
       <Route path='*' element={<ErrorPage/>}/>
       </Route>
+      <Route path='/checkout' element={<Checkout/>}>
+        <Route index path='cart' element={<Cart/>}/>
+        <Route index path='shipping' element={<Shipping/>}/>
+        <Route index path='payment' element={<Payment/>}/>
+
+
+
+        <Route path='' element={<ErrorPage/>}/>
+      </Route>
+      <Route path='*' element={<ErrorPage/>}/>
+
     </Routes>
   </Router>
 )

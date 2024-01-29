@@ -16,7 +16,7 @@ export default function FooterCol({heading,list}){
         handleList();
         reSize();
         return () => {
-            window.removeEventListener('resize',handleWidth);
+            window.removeEventListener('resize',handleList);
           };
     },[])
     return (

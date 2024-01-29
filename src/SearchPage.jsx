@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainContainer from "./MainContainer";
 import FullBanner from "./FullStripBanner";
 import ProductContext from "./ProductContext";
@@ -21,11 +21,13 @@ import WomenClothing from '../images/Women-clothing-banner-desktop-view_28_07_20
 import WomenKurti from '../images/kurti-categry-banner-desktop-view_25_08_2023_1920x475.jpg'
 import WomenShirt from '../images/Women_s-Shirt-Category-Banner-DESKTOP-VIEW_12_12_2022_1920x475.jpg'
 import WomenTshirt from '../images/Printed-tshirt-categry-desktop-view-banner_16_08_2023_1920x475.jpg'
-
+// IMPORTING COMPONENTES
 import Filter from "./Filter";
 import Display from "./Display";
 import styles from './SearchPage.module.css'
 import { useParams } from "react-router-dom";
+// IMPORTING CONTEXT
+import AuthContext from "./AuthContext";
 
 const h = ['Hoodies for Men - ',
                 'Jeans for Men - ',
@@ -73,7 +75,9 @@ export default function SearchPage(){
     // GETTING PARAMS;
     const params = useParams();
 
-    // SCROLL AND RESPONSIVE
+    // AUTHENTICATION
+    const auth = useContext(AuthContext);
+    console.log(auth);
 
     
     // INITIALLISING THE URL AND HEADERS;

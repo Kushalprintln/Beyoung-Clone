@@ -1,4 +1,20 @@
 .wishlist{
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+}
+.wishlistcontianer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty{
+    text-align: center;
+}
+.empty img{
+    width: 70%;
+}
+@media screen and (max-width: 700px) {
+    .wishlist{
+        margin: 0 30px;
+    }
 }
