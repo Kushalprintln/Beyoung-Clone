@@ -41,9 +41,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route index path='cart' element={<Cart/>}/>
         <Route index path='shipping' element={<Shipping/>}/>
         <Route index path='payment' element={<Payment/>}/>
-
-
-
         <Route path='' element={<ErrorPage/>}/>
       </Route>
       <Route path='*' element={<ErrorPage/>}/>

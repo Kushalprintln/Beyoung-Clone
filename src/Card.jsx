@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from './Card.module.css';
 import bbimg from '../images/full-sleeve-image-bb.jpg';
 import error from '../images/imgNotFound.png'
 import { Link } from "react-router-dom";
+import AuthContext from "./AuthContext";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 export default function Card({br,data}){
     const product = {...data};
     const brstyle = {border:'1px solid rgba(0, 0, 0, 0.4)',borderRadius:'15px'}
@@ -10,8 +12,27 @@ export default function Card({br,data}){
     const inc = 100-discount;
     const incPrice = Math.floor((product.price*100)/inc);
 
+    const Authentication = useContext(AuthContext);
+
     function handelingErroImag(e){
         e.target.src = error;
+    }
+    // ADDING WISHLIST;
+    //REQUIRMENTS;
+    const baseUrl = 'https://academics.newtonschool.co/';
+    const addwishlist = 'api/v1/ecommerce/wishlist/';
+    const loginUrl = 'api/v1/user/login';
+    const header = {projectID:'f104bi07c490','Content-Type': 'application/json','Authorization': `Bearer ${Authentication.jws[0]}`};
+    const bod = { "productId" : product._id}
+
+    async function addingWishlist(){
+        const resp = fetch(`${baseUrl}${addwishlist}`,{ 
+            method:'PATCH',
+            headers:header, 
+            body: JSON.stringify({...bod})
+        })
+
+
     }
 
     if(data){
@@ -19,6 +40,9 @@ export default function Card({br,data}){
             <Link to={`/${product._id}`} state={{discount:discount,incPrice:incPrice}} style={{textDecoration:'none'}}>
             <div className={styles.card} style={br && brstyle}>
                 <img src={product.displayImage ? `${product.displayImage}` : error} alt={product.name} onError={handelingErroImag}/>
+                {!br && <span className={styles.cardlike} onClick={addingWishlist}>
+                    <FavoriteBorderOutlinedIcon />
+                </span>}
                 <div className={styles.details}>
                     <p className={styles.hed}>{product.name}</p>
                     <p className={styles.cat}>{product.subCategory}</p>

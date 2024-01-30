@@ -19,6 +19,7 @@
 .login{
     padding-right: 10px;
     border-right: 1px solid white;
+    text-transform: uppercase;
 }
 .left{
     display: flex;

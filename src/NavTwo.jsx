@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './NavTwo.module.css'
 import image from '../images/beyonglogo.png'
 // MATERIAL UI COMPONENTS
@@ -14,6 +14,8 @@ import DropDown from "./DropDown";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import SearchModal from "./SearchModal";
+// AUTH
+import AuthContext from "./AuthContext";
 export default function NavTwo(){
         const [scrolled,setScrolled] = useState(false);
         const [dropvis, setDropvis] = useState(false);
@@ -24,6 +26,10 @@ export default function NavTwo(){
         const [selecedCat, setselCat] = useState('');
         const Mencat = ['hoodie','jeans','jogger','kurta','pyjamas','shirt','shorts','sweater','tracksuit','trouser','tshirt']
         const Womencat = ['jeans','jumpsuit','jogger','kurti','shirt','tshirt'];
+
+        // AUTHENTICATION
+        const Authentication = useContext(AuthContext);
+        // console.log(Authentication);
         function logit() {
           if(window.scrollY > 1){
             setScrolled(true);

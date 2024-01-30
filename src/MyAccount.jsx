@@ -3,7 +3,6 @@ import MainContainer from "./MainContainer";
 import styles from './MyAccount.module.css';
 import LoggedNav from "./LoggedNav";
 import { FaAngleRight } from "react-icons/fa6";
-import Order from "./Order";
 import { Outlet } from "react-router-dom";
 export default function MyAccount(){
     const [navVisiable,setNavVisiabl] = useState(true);

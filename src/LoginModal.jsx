@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from './LoginModal.module.css'
 import loginImg from '../images/login-and-signup-image.jpg';
-export default function LoginModal({close,purpose}){
-    // console.log(purpose);
+import AuthContext from "./AuthContext";
+export default function LoginModal({close,purpose,changepur}){
+    // console.log(changepur);
     const[loginDetails,setLoginDetails] = useState(
         {
             email : "",
@@ -18,13 +19,16 @@ export default function LoginModal({close,purpose}){
             appType : "ecommerce"
         }
     );
+    // AUTHENTICATION
+    const Authentication = useContext(AuthContext);
+    // console.log(Authentication);
+
   
     // REQUIRMENTS;
     const baseUrl = 'https://academics.newtonschool.co/';
     const signupUrl = 'api/v1/user/signup';
-    // const signingupURL = `${baseUrl}${signupUrl}`
     const loginUrl = 'api/v1/user/login';
-    const header = {projectID:'f104bi07c490'};
+    const header = {projectID:'f104bi07c490','Content-Type': 'application/json'};
 
     // SIGNUP FUNCTION;
     async function SignUp(){
@@ -33,7 +37,20 @@ export default function LoginModal({close,purpose}){
             headers:header,
             body: JSON.stringify({...signUpDetails})
         })
-        console.log(resp);
+        // console.log(resp);
+        const failmsg = await resp.json();
+        // console.log(failmsg);
+        if(resp.ok){
+            alert("SignUp Successful\n Please LogIn");
+            clearSingInform();
+            changepur('login');
+        }
+        else{
+            alert(`${failmsg.message}\n Please LogIn`);
+            clearSingInform();
+            changepur('login');
+        }
+        
     }
     // LOGIN FUNCTION;
     async function Login(){
@@ -42,6 +59,22 @@ export default function LoginModal({close,purpose}){
             headers:header,
             body: JSON.stringify({...loginDetails})
         })
+        console.log(resp);
+        const logindata = await resp.json();
+        console.log(logindata);
+        if(resp.ok){
+            alert("Login Successful");
+            clearLogInform();
+            close(false);
+            Authentication.status[1](true);
+            Authentication.jws[1](logindata.token)
+            Authentication.data[1]({...logindata.data});
+// have to set data in the local storage;
+        }else{
+            alert(`${logindata.message}`);
+            clearLogInform();
+            close(false);
+        }
     }
     // VALIDATION
     function execute(event){
@@ -68,6 +101,12 @@ export default function LoginModal({close,purpose}){
                 
             }
         }
+    }
+    function clearSingInform(){
+        setLoginDetails(prev=>{return {...prev,name:"",email : "",password : "",}})
+    }
+    function clearLogInform(){
+        setLoginDetails(prev=>{return {...prev,email : "",password : "",}})
     }
     return (
         <div className={styles.modalcontainer}>

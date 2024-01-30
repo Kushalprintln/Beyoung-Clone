@@ -19,28 +19,29 @@ export default function Home(){
     const categoriesApi = 'api/v1/ecommerce/clothes/categories';
     const productApi = 'api/v1/ecommerce/clothes/products?filter={"gender":"Men"}';
     const productwomen = 'api/v1/ecommerce/clothes/products?filter={"gender":"Women"}'
-    const catURL = `${basicDom}${categoriesApi}`;
+    const catURL = `${basicDom}${categoriesApi}`; // NOT USING THIS API IN THE APPLICATION;
     const proURL = `${basicDom}${productApi}`;
     const proWomenURL = `${basicDom}${productwomen}`;
     const header = {projectId:'f104bi07c490'};
     const [products,setPro] = useState([]);
     const [Womproducts,setWomPro] = useState([]);
- 
+
     async function getProData(){
+      // GETTING MEN PRODUCTS
         let prores = await fetch(proURL,{
           method:'GET',
           headers: header
         })
+        // CONVERTING IT IN JSON AND SETTING THE DATA
         let prodata = await prores.json();
-        // console.log(prodata);
-        // console.table(prodata.data);
         setPro(prodata.data)
+        // GETTING WOMENS DATA;
         let reswomen = await fetch(proWomenURL,{
           method:'GET',
           headers: header
         });
+        // CONVERTING IT IN JSON AND SETTING THE DATA
         let womdata = await reswomen.json();
-        // console.log(womdata);
         setWomPro(womdata.data);
     
       }

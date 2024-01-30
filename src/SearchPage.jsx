@@ -77,7 +77,7 @@ export default function SearchPage(){
 
     // AUTHENTICATION
     const auth = useContext(AuthContext);
-    console.log(auth);
+    // console.log(auth);
 
     
     // INITIALLISING THE URL AND HEADERS;
