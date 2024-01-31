@@ -26,6 +26,7 @@
         position: sticky;
         top: 64px;
         background: white;
+        z-index: 100;
     }
     .filter{
         /* border: 1px solid black; */

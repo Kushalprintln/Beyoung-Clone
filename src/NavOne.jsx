@@ -6,24 +6,23 @@ import LoginModal from "./LoginModal";
 import AuthContext from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 export default function NavOne(){
+    // console.log('NAVONE RERENDERED');
     const Authentication = useContext(AuthContext);
     // console.log(Authentication);
-    const [modal,setmodal]= useState(false);
-    const [purpose,setperpose]= useState('');
     const navigate = useNavigate();
 
     function sigingup(){
         if(!Authentication.status[0]){
-            setperpose('login');
-            setmodal(true);
+            Authentication.loginmodal[1]('login');
+            Authentication.loginmodal[0](true);
         }else{
             navigate('/myaccount/order');
         }
     }
     function loggingin(){
         if(!Authentication.status[0]){
-            setperpose('signup');
-            setmodal(true);
+            Authentication.loginmodal[1]('signup');
+            Authentication.loginmodal[0](true);
         }
         else{
             signout();
@@ -33,6 +32,9 @@ export default function NavOne(){
         Authentication.status[1](false);
         Authentication.jws[1]('')
         Authentication.data[1]('');
+        Authentication.wish[1]([]);
+        localStorage.removeItem('user');
+        
     }
     return (
         <section className={styles.navone}>
@@ -43,7 +45,6 @@ export default function NavOne(){
                     <div className={styles.signup} onClick={loggingin}>{Authentication.status[0] ? 'LOGOUT':'SIGNUP'}</div>
                 </div>
             </div>
-            {modal && <LoginModal close={setmodal} purpose={purpose} changepur={setperpose}/>}
         </section>
     )
 }

@@ -5,6 +5,7 @@ import paymentimg from '../images/Frame-payment -1.jpg'
 import { FaInstagram,FaLinkedin,FaFacebook,FaTwitter,FaPinterest,FaYoutube    } from "react-icons/fa";
 import FqAsk from "./FqAsk";
 export default function Footer(){
+    // console.log('FOOTER RERENDERD');
     return (
         <div className={styles.footer}>
             <div className={styles.footerContainer}>

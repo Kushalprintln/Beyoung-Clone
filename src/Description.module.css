@@ -6,6 +6,11 @@
     flex-direction: column;
     gap: 15px;
 }
+@media screen and (max-width: 850px) {
+    .productdescription{
+        width: 100%;
+    }
+}
 .desheading{
     display: flex;
     align-items: center;
@@ -15,7 +20,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
-    line-height: 22px;
+    line-height: 20px;
     color: #000000;
     height: 22px;
     display: block;
@@ -144,3 +149,8 @@
     background-color: #f9eb28;
     color: black;
 }
+/* @media screen and (max-width: 450px) {
+    .productdescription{
+        width: 100%;
+    }
+} */

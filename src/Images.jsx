@@ -53,7 +53,7 @@ console.log(imgArr)
             thumbnailWidth="100px"
             style={{
               textAlign: "center",
-              // maxWidth: "450px",
+              maxWidth: "450px",
               // maxHeight: "570px",
               margin: "0px auto",
               display:"flex",

@@ -15,6 +15,7 @@ import Paymentslider from "./PaymentSlider";
 import LogoCarousel from "./LogoCarousel";
 
 export default function Home(){
+  // console.log('HOME RERENDERED');
     const basicDom = 'https://academics.newtonschool.co/';
     const categoriesApi = 'api/v1/ecommerce/clothes/categories';
     const productApi = 'api/v1/ecommerce/clothes/products?filter={"gender":"Men"}';

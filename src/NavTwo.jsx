@@ -11,12 +11,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // REACT ICON COMPONENTS
 import { IoMenu } from "react-icons/io5";
 import DropDown from "./DropDown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import SearchModal from "./SearchModal";
 // AUTH
 import AuthContext from "./AuthContext";
 export default function NavTwo(){
+  // console.log('NAVTWO RERENDERED');
         const [scrolled,setScrolled] = useState(false);
         const [dropvis, setDropvis] = useState(false);
         const [sideBarVis, setsideBarVis] = useState(false);
@@ -48,6 +49,22 @@ export default function NavTwo(){
         function watchScroll() {
           window.addEventListener("scroll", logit);
           window.addEventListener("resize", LoadingFor);
+        }
+        // NAVIGATING
+        const navigate = useNavigate();
+        function navigatetowish(){
+          if(Authentication.status[0]){
+            navigate('/myaccount/wishlist');
+          }else{
+            Authentication.loginmodal[0](true);
+          }
+        }
+        function navigateToCart(){
+          if(Authentication.status[0]){
+            navigate('/checkout/cart');
+          }else{
+            Authentication.loginmodal[0](true);
+          }
         }
         useEffect(() => {
           watchScroll();
@@ -87,10 +104,10 @@ export default function NavTwo(){
                         color: "black",
                         backgroundColor: "#ffdd00"
                       }
-                    }} badgeContent={4}>
-                    <Link to={'myaccount/wishlist'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}>
-                    <FavoriteBorderOutlinedIcon style={{cursor:'pointer'}}/>
-                    </Link>
+                    }} badgeContent={Authentication.wish[0].length}>
+                    {/* <Link to={'myaccount/wishlist'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}> */}
+                    <FavoriteBorderOutlinedIcon style={{cursor:'pointer'}} onClick={navigatetowish}/>
+                    {/* </Link> */}
                   </Badge>
                   <Badge sx={{
                       "& .MuiBadge-badge": {
@@ -98,9 +115,9 @@ export default function NavTwo(){
                         backgroundColor: "#ffdd00"
                       }
                     }} badgeContent={4}>
-                    <Link to={'checkout'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}>
-                    <ShoppingCartOutlinedIcon style={{cursor:'pointer'}}/>
-                    </Link>
+                    {/* <Link to={'checkout'} style={{font:'inherit',color:'inherit',textDecoration:'none',display:'flex'}}> */}
+                    <ShoppingCartOutlinedIcon style={{cursor:'pointer'}} onClick={navigateToCart}/>
+                    {/* </Link> */}
                   </Badge>
                 </Stack>
                 {searchVis && <SearchModal/>}

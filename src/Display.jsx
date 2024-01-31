@@ -3,6 +3,7 @@ import styles from './Display.module.css'
 import Card from "./Card";
 import ProductContext from "./ProductContext";
 export default function Display(){
+    // console.log('display');
     const productData = useContext(ProductContext);
     return(
         <div className={styles.display} >

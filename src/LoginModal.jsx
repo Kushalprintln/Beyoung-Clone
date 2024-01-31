@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import styles from './LoginModal.module.css'
 import loginImg from '../images/login-and-signup-image.jpg';
 import AuthContext from "./AuthContext";
-export default function LoginModal({close,purpose,changepur}){
-    // console.log(changepur);
+export default function LoginModal({purpose}){
+    // console.log('LOGIN-MODAL RENDERED');
     const[loginDetails,setLoginDetails] = useState(
         {
             email : "",
@@ -49,9 +49,9 @@ export default function LoginModal({close,purpose,changepur}){
             alert(`${failmsg.message}\n Please LogIn`);
             clearSingInform();
             changepur('login');
-        }
-        
+        } 
     }
+    let token;
     // LOGIN FUNCTION;
     async function Login(){
         const resp = await fetch(`${baseUrl}${loginUrl}`,{
@@ -59,23 +59,46 @@ export default function LoginModal({close,purpose,changepur}){
             headers:header,
             body: JSON.stringify({...loginDetails})
         })
-        console.log(resp);
+        // console.log(resp);
         const logindata = await resp.json();
         console.log(logindata);
         if(resp.ok){
             alert("Login Successful");
             clearLogInform();
-            close(false);
+            Authentication.loginmodal[0](false);
             Authentication.status[1](true);
             Authentication.jws[1](logindata.token)
+            token = logindata.token;
             Authentication.data[1]({...logindata.data});
-// have to set data in the local storage;
+            localStorage.setItem('user', JSON.stringify({login:true,jws:logindata.token,info:JSON.stringify({...logindata.data})}));
+            getwishlist();
         }else{
             alert(`${logindata.message}`);
             clearLogInform();
-            close(false);
+            Authentication.loginmodal[0](false);
+
         }
     }
+    // GETTING WISHLIST ONCE LOGIN
+    async function getwishlist(){
+        // REQUIRMENTS;
+        // console.log('chekcing',token);
+        const baseUrl = 'https://academics.newtonschool.co/';
+        const getwish = 'api/v1/ecommerce/wishlist';
+        const header = {projectID:'f104bi07c490','Content-Type': 'application/json' ,'Authorization': `Bearer ${token}`};
+        const resp = await fetch(`${baseUrl}${getwish}`,{
+          method:'GET',
+          headers:header,
+        })
+        // console.log(resp);
+        const wishlist = await resp.json();
+        // console.log(wishlist.data.items);
+        wishlist.data.items.map((ele)=>{
+          // console.log(ele.products._id);
+          Authentication.wish[1](prev => [...prev,ele.products._id])
+        })
+    }
+
     // VALIDATION
     function execute(event){
         event.preventDefault();
@@ -111,7 +134,7 @@ export default function LoginModal({close,purpose,changepur}){
     return (
         <div className={styles.modalcontainer}>
             <div className={styles.modal}>
-                <span className={styles.closemodal} onClick={()=>{close(false)}}>X</span>
+                <span className={styles.closemodal} onClick={()=>{Authentication.loginmodal[0](false);Authentication.loginmodal[1]('login')}}>X</span>
                 <img src={loginImg} alt="" />
                 <form action="" className={styles.loginform}>
                     {purpose==="login" ?<h2>Login</h2> :<h2>Sign Up</h2>}
@@ -130,7 +153,7 @@ export default function LoginModal({close,purpose,changepur}){
                     }
                     <button className={styles.loginbtn} onClick={execute}>{purpose==="login" ? `Login` : `SignUp`}</button>
                 </form>
-                <span onClick={()=>{close(false)}}>Continue as Guest</span>
+                <span onClick={()=>{Authentication.loginmodal[0](false);Authentication.loginmodal[1]('login')}}>Continue as Guest</span>
             </div>
         </div>
     )
