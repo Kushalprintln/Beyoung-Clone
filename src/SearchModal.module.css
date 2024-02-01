@@ -9,6 +9,7 @@
     display: flex;
     padding: 14px;
     border-top: 1px solid #f3f1f1;
+    z-index: 100;
 }
 .searchinput{
     border: 1px solid #e1e1e1;

@@ -1,11 +1,14 @@
 .wishlist{
     width: 100%;
     /* border: 1px solid black; */
+
 }
 .wishlistcontianer{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 .empty{
     text-align: center;

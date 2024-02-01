@@ -1,0 +1,101 @@
+.card{
+    width: 200px;
+    /* height: 350px; */
+    /* border: 1px solid rgba(0, 0, 0, 0.4); */
+    border-radius: 10px; 
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    /* border: 1px solid black; */
+    /* display: flex; */
+    margin-bottom: 10px;
+}
+.card img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.cardlike{
+    /* border: 1px solid black; */
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    background-color: white;
+}
+.details{
+    /* border: 1px solid black; */
+    margin: 0 10px 10px 10px;
+}
+.hed{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: 0.3px;
+}
+.cat{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.4);
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+.price{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.price .pp{
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 600;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.8) ;
+    border: none;
+}
+.price .sm{
+    display: inline-block;
+    font-weight: 400;
+    text-decoration: line-through;
+    font-size: 14px;
+    color: rgba(169, 169, 169, 0.8);
+}
+.price .st{
+    vertical-align: top;
+    display: inline-block;
+    color: #04ce00;
+    font-size: 13px;
+    font-weight: 700;
+}
+.addcart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    background: #d9d9d9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1px solid #e1e1e1;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
