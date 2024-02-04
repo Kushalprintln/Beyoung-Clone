@@ -1,10 +1,14 @@
+// IMPORITNG REACT, REACTDOM
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
+
+// IMPORTING ROUTER HOOKS
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import ErrorPage from './ErrorPage.jsx'
+
+// IMPORTING OTHER COMPONENTS
+import App from './App.jsx'
 import Home from './Home.jsx'
 import SearchPage from './SearchPage.jsx'
 import ProductPage from './ProductPage.jsx'
@@ -18,6 +22,7 @@ import Checkout from './Checkout.jsx'
 import Cart from './Cart.jsx'
 import Shipping from './Shipping.jsx'
 import Payment from './Payment.jsx'
+import ErrorPage from './ErrorPage.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -35,8 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='wishlist' index element={<Wishlist/>}/>
         <Route path='coupon' index element={<Coupon/>}/>
       </Route>
-      <Route path='*' element={<ErrorPage/>}/>
-      </Route>
       <Route path='/checkout' element={<Checkout/>}>
         <Route index path='cart' element={<Cart/>}/>
         <Route index path='shipping' element={<Shipping/>}/>
@@ -44,7 +47,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='' element={<ErrorPage/>}/>
       </Route>
       <Route path='*' element={<ErrorPage/>}/>
-
+      </Route>
+      <Route path='*' element={<ErrorPage/>}/>
     </Routes>
   </Router>
 )

@@ -1,10 +1,15 @@
+// IMPORTING REACT AND CSS;
 import React from "react";
 import styles from './Description.module.css';
-import { CiHeart  } from "react-icons/ci";
+
+// IMPORT ICON;
+import { CiHeart } from "react-icons/ci";
 import Coloricon from "./Coloricon";
-export default function Description({data}){
-    const data1 = {...data};
-    return(
+
+// DESCRIPTION COMPONENT
+export default function Description({ data }) {
+    const data1 = { ...data };
+    return (
         <div className={styles.productdescription}>
             <div className={styles.desheading}>
                 <h1>{data1.name}</h1>
@@ -18,7 +23,7 @@ export default function Description({data}){
                     <span>(60% off)</span>
                 </span>
                 <span className={styles.taxline}>Inclusive of All Taxes + Free Shipping</span>
-                <span className={styles.discountline}>Extra ₹100 OFF on ₹999 (Code:BEYOUNG100)</span>   
+                <span className={styles.discountline}>Extra ₹100 OFF on ₹999 (Code:BEYOUNG100)</span>
             </div>
             <div className={styles.colorselect}>
                 <h1>COLOR : <span>Green</span></h1>

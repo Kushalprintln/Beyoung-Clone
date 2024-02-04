@@ -1,0 +1,33 @@
+.total,
+.discount,
+.shipping,
+.cart {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+.upper span {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+}
+
+.finalprice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chekout {
+    display: block;
+    background: #51cbcc;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+}

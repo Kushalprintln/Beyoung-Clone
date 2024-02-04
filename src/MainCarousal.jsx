@@ -1,5 +1,7 @@
+// IMPORRING REACT AND CSS
 import React from "react";
 import styles from './MainCarousal.module.css'
+
 import image from '../images/cards2.jpg'
 export default function({data}){
     const data1 = {...data}

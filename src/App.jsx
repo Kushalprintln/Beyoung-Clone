@@ -1,76 +1,102 @@
-import AdLine from './AdLine';
+// IMPORT REACT AND CSS
 import './App.css';
+
+// IMPORTING REACT AND ROUTER HOOKS;
+import { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
+
+// IMPORTING OHTER COMPONENTS
+import AdLine from './AdLine';
 import NavOne from './NavOne';
 import NavTwo from './NavTwo';
 import Footer from './Footer';
-import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import LoginModal from './LoginModal';
+
 // IMPORTING CONTEXT;
 import AuthContext from './AuthContext';
-import LoginModal from './LoginModal';
-function App() {
-  // console.log('APP RERENDERED');
-  // SETTING DATA FOR THE CONTEXT;
-const [login,setlogin] = useState(false);
-const [loginData,setLogInData] = useState('');
-const [JWS,SetJWS] = useState('');
-const [locwish,setlocwish] = useState([]);
-const [modal,setmodal]= useState(false);
-const [purpose,setperpose]= useState('login');
 
-let token;
-  function checkUser(){
-    if(localStorage.getItem('user')){
+// APP COMPONENT
+function App() {
+  // DECLEARING STATES;
+  const [login, setlogin] = useState(false);
+  const [loginData, setLogInData] = useState('');
+  const [JWS, SetJWS] = useState('');
+  const [locwish, setlocwish] = useState([]);
+  const [loccart, setlocCart] = useState({ items: [] });
+  const [modal, setmodal] = useState(false);
+  const [purpose, setperpose] = useState('login');
+
+  let token; // TOKEN
+
+  // CHECKING IF USER ALREADY LOGGED WITH LOCAL STORAGE;
+  function checkUser() {
+    if (localStorage.getItem('user')) {
       let user = JSON.parse(localStorage.getItem('user'));
-      // console.log(user);
       setlogin(user.login);
-      let userinfo = JSON.parse(user.info);
-      // console.log(userinfo);
-      setLogInData({...userinfo});
+      let userinfo = JSON.parse(user.info);;
+      setLogInData({ ...userinfo });
       SetJWS(user.jws);
       token = user.jws;
       getwishlist();
+      getCartList();
     }
   }
-  
-  async function getwishlist(){
-    // REQUIRMENTS;
-    // console.log('chekcing',token);
-    const baseUrl = 'https://academics.newtonschool.co/';
-    const getwish = 'api/v1/ecommerce/wishlist';
-    const header = {projectID:'f104bi07c490','Content-Type': 'application/json' ,'Authorization': `Bearer ${token}`};
-    const resp = await fetch(`${baseUrl}${getwish}`,{
-      method:'GET',
-      headers:header,
+
+  // REQUIRMENTS FOR MAKING API CALL;
+  const baseURL = 'https://academics.newtonschool.co/';
+  const getWishURL = 'api/v1/ecommerce/wishlist';
+  const getCartURL = 'api/v1/ecommerce/cart';
+
+  // GETTING WISHLIST IF USER IS LOGGEDIN;
+  async function getwishlist() {
+    const header = { projectID: 'f104bi07c490', 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+    const resp = await fetch(`${baseURL}${getWishURL}`, {
+      method: 'GET',
+      headers: header,
     })
-    // console.log(resp);
     const wishlist = await resp.json();
-    // console.log(wishlist.data.items);
-    wishlist.data.items.map((ele)=>{
-      // console.log(ele.products._id);
-      setlocwish(prev => [...prev,ele.products._id])
+
+    // SETTING WISHLIST IN LOCAL STATE;
+    wishlist.data.items.map((ele) => {
+      setlocwish(prev => [...prev, ele.products._id])
     })
   }
 
-  useEffect(()=>{
-    checkUser();
-  },[]);
+  // GETTING CARTLIST IF USER IS LOGGEDIN
+  async function getCartList() {
+    const header = { projectID: 'f104bi07c490', 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+    const resp = await fetch(`${baseURL}${getCartURL}`, {
+      method: 'GET',
+      headers: header,
+    })
+    const cartList = await resp.json();
 
+    // SETTING CARTLIST IN LOCAL STATE;
+    setlocCart({ ...cartList.data, results: cartList.results });
+  }
+
+  // CHECKING USER IN USEEFFECT;
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  //  APP COMPONENT
   return (
     <>
       <AuthContext.Provider value={{
-        loginmodal:[setmodal,setperpose],
-        status:[login,setlogin],
-        data:[loginData,setLogInData],
-        jws:[JWS,SetJWS],
-        wish:[locwish,setlocwish]
+        loginmodal: [setmodal, setperpose],
+        status: [login, setlogin],
+        data: [loginData, setLogInData],
+        jws: [JWS, SetJWS],
+        wish: [locwish, setlocwish],
+        cart: [loccart, setlocCart]
       }}>
-      <AdLine/>
-      <NavOne/>
-      {modal && <LoginModal purpose={purpose}/>}
-      <NavTwo/>
-      <Outlet/>
-      <Footer/>
+        <AdLine />
+        <NavOne />
+        {modal && <LoginModal purpose={purpose} />}
+        <NavTwo />
+        <Outlet />
+        <Footer />
       </AuthContext.Provider>
     </>
   )

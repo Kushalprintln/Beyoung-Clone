@@ -1,6 +1,9 @@
+// IMPORT REACT AND ROUTER HOOK
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Homebtn({text}){
+
+// IMPORT HOMEBTN
+export default function Homebtn({ text }) {
     const stylebtn = {
         background: '#feeb00',
         color: '#000',
@@ -13,9 +16,9 @@ export default function Homebtn({text}){
         margin: '10px auto',
         textAlign: 'center',
         display: 'block',
-        cursor:'pointer'
+        cursor: 'pointer'
     }
     return (
-        <Link to={'/'} style={{textDecoration:'none'}}><button style={stylebtn}>{text}</button></Link> 
+        <Link to={'/'} style={{ textDecoration: 'none' }}><button style={stylebtn}>{text}</button></Link>
     )
 }

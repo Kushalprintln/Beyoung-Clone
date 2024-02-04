@@ -1,4 +1,4 @@
-// Product context using in the Search page for filter and Discription;
+// PRODUCT CONTEXT USING IN THE SEARCH PAGE FOR FILTER AND DISCRIPTION
 import React from "react";
 const ProductContext = React.createContext();
 export default ProductContext;

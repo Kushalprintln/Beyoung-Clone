@@ -1,23 +1,29 @@
+// IMPORTING REACT AND CSS;
 import React from "react";
 import styles from './Footer.module.css';
+
+// IMPORTING FOOTER COLUM AND FAQ COMPONENT
 import FooterCol from "./FooterCol";
-import paymentimg from '../images/Frame-payment -1.jpg'
-import { FaInstagram,FaLinkedin,FaFacebook,FaTwitter,FaPinterest,FaYoutube    } from "react-icons/fa";
 import FqAsk from "./FqAsk";
-export default function Footer(){
-    // console.log('FOOTER RERENDERD');
+
+// IMPORTING PAYMENT IMAGE AND ICONS
+import paymentimg from '../images/Frame-payment -1.jpg'
+import { FaInstagram, FaLinkedin, FaFacebook, FaTwitter, FaPinterest, FaYoutube } from "react-icons/fa";
+
+// FOOTER COMPONENT
+export default function Footer() {
     return (
         <div className={styles.footer}>
             <div className={styles.footerContainer}>
-                <FooterCol heading={'need help'} list={['contact us','track order','returns & refund', "FAQ's",'career']}/>
-                <FooterCol heading={'company'} list={['about us','beyoung blog','beyoungistan','collabration','media']}/>
-                <FooterCol heading={'more info'} list={['terms and condition','privacy policy','shipping policy','sitemap']}/>
-                <FooterCol heading={'location'} list={['supoort@beyoung.in','Eklingpura Chouraha, Ahmedabad Main Road','(NH 8- Near Mahadev Hotel) Udaipur, India- 313002']}/>
+                <FooterCol heading={'need help'} list={['contact us', 'track order', 'returns & refund', "FAQ's", 'career']} />
+                <FooterCol heading={'company'} list={['about us', 'beyoung blog', 'beyoungistan', 'collabration', 'media']} />
+                <FooterCol heading={'more info'} list={['terms and condition', 'privacy policy', 'shipping policy', 'sitemap']} />
+                <FooterCol heading={'location'} list={['supoort@beyoung.in', 'Eklingpura Chouraha, Ahmedabad Main Road', '(NH 8- Near Mahadev Hotel) Udaipur, India- 313002']} />
             </div>
             <hr />
-            <FqAsk heading={'why chose us?'} pheading={'Online Shopping Site'} pcontent={"India's Best Online Shopping Site for Fashion and Lifestyle Started in 2018, Beyoung is the Best Site for online shopping in India when it comes to a vast collection of men's and women's fashion. The latest trends and styles are showcased here, yes at your favorite online fashion store. Well, if fashion is medicine, then Be Young is the chemist shop where you can do your online shopping for fashion with ease. Nothing to brag about, but we are the classic blend of 'Creativity' and 'Style'. Get The Young Out with Beyoung, our slogan says a lot about us. Our website is filled with the cool outfits that you always crave. Indeed, online shopping for women and men at Beyoung is hassle-free that in just a few clicks, one can purchase whatever he/she wants. A one-stop destination for all your shopping needs, Beyoung caters to each taste and need of every personality. The premium quality, affordable style, and trending graphics go into the making of our vast collection of men's and Women's Clothing. So, go ahead and indulge with India's best online shopping website for fashion. To know more about us, scroll below!"}/>
+            <FqAsk heading={'why chose us?'} pheading={'Online Shopping Site'} pcontent={"India's Best Online Shopping Site for Fashion and Lifestyle Started in 2018, Beyoung is the Best Site for online shopping in India when it comes to a vast collection of men's and women's fashion. The latest trends and styles are showcased here, yes at your favorite online fashion store. Well, if fashion is medicine, then Be Young is the chemist shop where you can do your online shopping for fashion with ease. Nothing to brag about, but we are the classic blend of 'Creativity' and 'Style'. Get The Young Out with Beyoung, our slogan says a lot about us. Our website is filled with the cool outfits that you always crave. Indeed, online shopping for women and men at Beyoung is hassle-free that in just a few clicks, one can purchase whatever he/she wants. A one-stop destination for all your shopping needs, Beyoung caters to each taste and need of every personality. The premium quality, affordable style, and trending graphics go into the making of our vast collection of men's and Women's Clothing. So, go ahead and indulge with India's best online shopping website for fashion. To know more about us, scroll below!"} />
             <hr />
-            <FqAsk heading={'popular categories'} pheading={"MEN'S CLOTHING"} pcontent={"Topwear: Half Sleeve T-Shirts | Full Sleeve T-Shirts | Men's Shirts | Printed T-Shirts | Plain T-Shirts | Polo T-Shirts | Plus Size T-Shirts | Combos Theme Based T Shirts: Ipl T Shirts | Men's Travel T-shirts | Gym T Shirts | Quotes T Shirt | Cartoon T Shirt | Entrepreneur T-Shirts | Student T Shirts | Funky T Shirts Winter Collection: Hoodies for Men | Sweatshirts for Men | Jackets for Men"}/>
+            <FqAsk heading={'popular categories'} pheading={"MEN'S CLOTHING"} pcontent={"Topwear: Half Sleeve T-Shirts | Full Sleeve T-Shirts | Men's Shirts | Printed T-Shirts | Plain T-Shirts | Polo T-Shirts | Plus Size T-Shirts | Combos Theme Based T Shirts: Ipl T Shirts | Men's Travel T-shirts | Gym T Shirts | Quotes T Shirt | Cartoon T Shirt | Entrepreneur T-Shirts | Student T Shirts | Funky T Shirts Winter Collection: Hoodies for Men | Sweatshirts for Men | Jackets for Men"} />
             <hr />
             <div className={styles.footerContainer2}>
                 <div className={styles.left}>

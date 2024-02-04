@@ -1,4 +1,4 @@
-.modalcontainer{
+.modalcontainer {
     width: 100vw;
     height: 100vh;
     /* border: 1px solid black; */
@@ -6,12 +6,13 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: rgba(0,0,0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal{
+
+.modal {
     width: 350px;
     /* height: 470px; */
     /* border: 1px solid black; */
@@ -21,37 +22,44 @@
     color: black;
     position: relative;
 }
-.modal img{
+
+.modal img {
     width: 100%;
 }
-.closemodal{
+
+.closemodal {
     position: absolute;
     top: 5px;
     right: 10px;
     cursor: pointer;
 }
-.loginform{
+
+.loginform {
     padding: 10px 20px;
     /* border: 1px solid black; */
 }
-.loginform h2{
+
+.loginform h2 {
     font-size: 20px;
     font-weight: 500;
     text-align: left;
     width: 80%;
 }
-.loginform p{
+
+.loginform p {
     font-size: 12px;
     display: block;
     color: rgba(40, 44, 63, 0.8);
 }
-.loginform input{
+
+.loginform input {
     width: 100%;
     padding: 8px;
     font-size: 14px;
     margin: 5px 0px;
 }
-.loginbtn{
+
+.loginbtn {
     width: 100%;
     display: inline-block;
     font-weight: 600;
@@ -66,6 +74,7 @@
     border: none;
     cursor: pointer;
 }
+
 .modal span {
     display: block;
     text-align: center;
@@ -76,6 +85,7 @@
     margin-top: 5px;
     cursor: pointer;
 }
+
 .modal span:hover {
     color: black;
 }

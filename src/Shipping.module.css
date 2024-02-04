@@ -1,3 +1,22 @@
-.shipping{
+.shipping {
     border: none;
+}
+
+.shipping img {
+    width: 100%;
+}
+
+.shippingcontainer {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.formcontainer {
+    width: 60%;
+}
+
+.billContainer {
+    width: 40%;
 }

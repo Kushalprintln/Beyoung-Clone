@@ -1,6 +1,9 @@
+// IMPORTING REACT AND CSS;
 import React from "react";
 import styles from './AddressSection.module.css';
-export default function AddressSection(){
+
+// ADDRESS SECTION COMPONENT
+export default function AddressSection() {
     return (
         <div className={styles.addsection}>
             <div className={styles.address}>

@@ -1,23 +1,26 @@
-.heading{
-    background: linear-gradient( 90deg, rgba(248, 235, 39, 0) 0%, #f8eb27 48.11%, rgba(248, 235, 39, 0) 100% );
+.heading {
+    background: linear-gradient(90deg, rgba(248, 235, 39, 0) 0%, #f8eb27 48.11%, rgba(248, 235, 39, 0) 100%);
     text-align: center;
 }
-.heading p{
+
+.heading p {
     color: #000;
     font-size: 25px;
     font-weight: 800;
     padding: 15px 0px;
     margin: 0;
 }
+
 @media screen and (max-width: 720px) {
-    .heading p{
+    .heading p {
         font-size: 20px;
         font-weight: 800;
         padding: 10px 0px;
     }
 }
+
 @media screen and (max-width: 500px) {
-    .heading p{
+    .heading p {
         font-size: 16px;
         font-weight: 800;
         padding: 5px 0px;

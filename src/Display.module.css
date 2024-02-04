@@ -1,15 +1,17 @@
-.display{
+.display {
     /* border: 1px solid black; */
     width: 75%;
 }
-.display h2{
+
+.display h2 {
     text-transform: uppercase;
     font-size: 20px;
     color: #000;
     padding-bottom: 15px;
     font-weight: 600;
 }
-.display p{
+
+.display p {
     color: #000;
     font-weight: 400;
     font-size: 14px;
@@ -17,19 +19,21 @@
     line-height: 22px;
 }
 
-.cardContainer{
+.cardContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 10px;
 }
+
 @media screen and (max-width: 720px) {
-    .display{
+    .display {
         /* border: 1px solid black; */
         width: 100%;
         margin-left: 0;
     }
-    .displayscrolled{
+
+    .displayscrolled {
         /* border: 1px solid black; */
         width: 100%;
         margin-left: 0;

@@ -1,11 +1,12 @@
-.unsel{
+.unsel {
     display: block;
     line-height: 25px;
     font-weight: 500;
     color: #434343;
     cursor: pointer;
 }
-.sel{
+
+.sel {
     display: block;
     line-height: 25px;
     font-weight: 700;

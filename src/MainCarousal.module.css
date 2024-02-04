@@ -1,10 +1,11 @@
-.crousel{
+.crousel {
     width: 52%;
     height: 500px;
     border: 1px solid black;
     overflow: hidden;
 }
-.crousel img{
+
+.crousel img {
     height: 100%;
     width: auto;
     float: right;

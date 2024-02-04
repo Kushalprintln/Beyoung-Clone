@@ -1,19 +1,21 @@
-.offerline{
+.offerline {
     padding: 6px 0;
     color: #1d1d1d;
-    background-color:#ffdd00;
+    background-color: #ffdd00;
     text-align: center;
     font-weight: 400;
 }
-.offerline p{
-margin: 0;
+
+.offerline p {
+    margin: 0;
 }
 
 @media screen and (max-width: 720px) {
-    .offerline{
+    .offerline {
         padding: 3px 0;
     }
-    .offerline p{
+
+    .offerline p {
         font-size: 12px;
     }
 }

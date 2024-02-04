@@ -1,34 +1,40 @@
-.logoheading{
+.logoheading {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
 }
-.line{
+
+.line {
     width: 33%;
     flex-grow: 1;
 }
-.line hr{
+
+.line hr {
     height: 3px;
     background: #f8eb27;
     border: none;
 }
-.logoCarousel{
+
+.logoCarousel {
     margin-bottom: 90px;
 }
-.featured{
+
+.featured {
     background: #fff;
     padding: 0 10px;
     letter-spacing: 0.9px;
     font-size: 30px;
     font-weight: 800;
 }
-.slider{
+
+.slider {
     overflow: hidden;
     /* border: 1px solid black; */
     display: flex;
 }
-.slidercontainer{
+
+.slidercontainer {
     display: flex;
     align-items: center;
     /* border: 1px solid black; */
@@ -36,37 +42,43 @@
     /* gap: 120px; */
     animation: scroll 15s linear infinite;
 }
-.slidercontainer img{
- width: 200px;
- margin-left: 120px;
+
+.slidercontainer img {
+    width: 200px;
+    margin-left: 120px;
 }
+
 @keyframes scroll {
-    0%{
+    0% {
         transform: translateX(0);
     }
-    100%{
+
+    100% {
         transform: translateX(-100%);
     }
 }
 
 @media screen and (max-width: 720px) {
-    .featured{
+    .featured {
         background: #fff;
         padding: 0 10px;
         letter-spacing: 0.9px;
         font-size: 20px;
         font-weight: 800;
     }
-    .slidercontainer img{
+
+    .slidercontainer img {
         width: 150px;
         margin-left: 90px;
     }
-    .logoCarousel{
+
+    .logoCarousel {
         margin-bottom: 50px;
     }
 }
+
 @media screen and (max-width: 520px) {
-    .featured{
+    .featured {
         background: #fff;
         padding: 0 10px;
         letter-spacing: 0.9px;
@@ -74,11 +86,13 @@
         font-weight: 800;
         text-align: center;
     }
-    .slidercontainer img{
+
+    .slidercontainer img {
         width: 100px;
         margin-left: 60px;
     }
-    .logoCarousel{
+
+    .logoCarousel {
         margin-bottom: 30px;
     }
 }

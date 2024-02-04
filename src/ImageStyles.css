@@ -8,6 +8,7 @@
     width: 100px;
     justify-content: space-between;
 }
+
 @media screen and (max-width: 500px) {
     .thumbnails {
         height: 250px;

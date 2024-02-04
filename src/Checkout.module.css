@@ -1,11 +1,13 @@
-.checkout{
+.checkout {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.nav{
+
+.nav {
     width: 90%;
 }
-.foot{
+
+.foot {
     width: 50%;
 }

@@ -1,9 +1,10 @@
-.filtercontainer{
+.filtercontainer {
     /* border: 1px solid black; */
     position: relative;
     width: 25%;
 }
-.filter{
+
+.filter {
     /* border: 1px solid black; */
     width: 100%;
     padding: 0 10px;
@@ -12,15 +13,17 @@
     top: 65px;
 }
 
-.filter h3,.filterfix h3{
+.filter h3,
+.filterfix h3 {
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 600;
     color: #434343;
     text-transform: uppercase;
 }
+
 @media screen and (max-width: 720px) {
-    .filtercontainer{
+    .filtercontainer {
         width: 100%;
         /* border: 1px solid black; */
         position: sticky;
@@ -28,14 +31,16 @@
         background: white;
         z-index: 100;
     }
-    .filter{
+
+    .filter {
         /* border: 1px solid black; */
         height: fit-content;
         display: flex;
     }
 }
+
 @media screen and (max-width: 480px) {
-    .filtercontainer{
+    .filtercontainer {
         top: 44px;
     }
 }

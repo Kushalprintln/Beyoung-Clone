@@ -1,9 +1,10 @@
-.navone{
+.navone {
     background-color: #000;
     color: white;
     padding: 7px 0;
 }
-.container{
+
+.container {
     margin: 0 auto;
     max-width: 1350px;
     padding: 0 15px;
@@ -12,27 +13,34 @@
     align-items: center;
     justify-content: space-between;
 }
-.right{
+
+.right {
     display: flex;
     gap: 10px;
 }
-.login{
+
+.login {
     padding-right: 10px;
     border-right: 1px solid white;
     text-transform: uppercase;
 }
-.left{
+
+.left {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 14px;
     font-weight: 700;
 }
-.left,.login,.signup{
+
+.left,
+.login,
+.signup {
     cursor: pointer;
 }
+
 @media screen and (max-width: 450px) {
-    .left{
+    .left {
         font-size: 12px;
     }
 }

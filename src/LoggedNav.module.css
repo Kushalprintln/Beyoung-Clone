@@ -1,9 +1,10 @@
-.lognav{
+.lognav {
     /* border: 1px solid black; */
     width: 250px;
     position: relative;
 }
-.lognavfix{
+
+.lognavfix {
     width: 250px;
     position: fixed;
     top: 0;
@@ -14,27 +15,32 @@
     animation: 0.3s linear 0s slidRight;
 
 }
+
 @keyframes slidRight {
-    0%{
+    0% {
         transform: translateX(-100%);
         opacity: 0.5;
     }
-    100%{
+
+    100% {
         transform: translateX(0%);
         opacity: 1;
     }
 }
+
 @keyframes slidLeft {
-    0%{
+    0% {
         transform: translateX(0%);
         opacity: 1;
     }
-    100%{
+
+    100% {
         transform: translateX(-100%);
         opacity: 0.5;
     }
 }
-.profilelogo{
+
+.profilelogo {
     width: 250px;
     height: 200px;
     /* border: 1px solid black; */
@@ -42,7 +48,8 @@
     padding: 20px;
     text-align: center;
 }
-.initials{
+
+.initials {
     font-size: 50px;
     margin: auto;
     width: 100px;
@@ -55,7 +62,8 @@
     justify-content: center;
     text-transform: uppercase;
 }
-.name{
+
+.name {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -65,31 +73,37 @@
     margin-top: 10px;
     margin-bottom: 5px
 }
-.beyoungster{
+
+.beyoungster {
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
     line-height: 17px;
     color: gray;
 }
-.navigation{
+
+.navigation {
     padding: 0px 10px;
     border: 1px solid #d4d5d5;
     font-size: 14px;
 }
-.navigation ul{
+
+.navigation ul {
     list-style: none;
 }
-.navigation li{
+
+.navigation li {
     padding: 20px 0px;
     border-bottom: 1px solid #d5d5d5;
     color: #746f6f;
 }
-.active{
+
+.active {
     font-weight: 600;
     color: #000;
 }
-.logoutbtn{
+
+.logoutbtn {
     background: #feeb00;
     padding: 3% 38%;
     font-style: normal;
@@ -103,7 +117,8 @@
     border: none;
     margin: 10px 0;
 }
-.slidebtn{
+
+.slidebtn {
     position: absolute;
     /* border: 1px solid black; */
     right: -20px;

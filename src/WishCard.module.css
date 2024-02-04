@@ -1,8 +1,8 @@
-.card{
+.card {
     width: 200px;
     /* height: 350px; */
     /* border: 1px solid rgba(0, 0, 0, 0.4); */
-    border-radius: 10px; 
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -10,12 +10,14 @@
     /* display: flex; */
     margin-bottom: 10px;
 }
-.card img{
+
+.card img {
     width: 100%;
     padding: 0;
     margin: 0;
 }
-.cardlike{
+
+.cardlike {
     /* border: 1px solid black; */
     display: flex;
     width: 25px;
@@ -29,11 +31,13 @@
     color: black;
     background-color: white;
 }
-.details{
+
+.details {
     /* border: 1px solid black; */
     margin: 0 10px 10px 10px;
 }
-.hed{
+
+.hed {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.7);
     font-weight: 600;
@@ -43,7 +47,8 @@
     text-overflow: ellipsis;
     letter-spacing: 0.3px;
 }
-.cat{
+
+.cat {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -56,35 +61,40 @@
     font-size: 13px;
     text-transform: capitalize;
 }
-.price{
+
+.price {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
 }
-.price .pp{
+
+.price .pp {
     font-style: normal;
     font-size: 14px;
     font-weight: 600;
     align-items: center;
-    color: rgba(0, 0, 0, 0.8) ;
+    color: rgba(0, 0, 0, 0.8);
     border: none;
 }
-.price .sm{
+
+.price .sm {
     display: inline-block;
     font-weight: 400;
     text-decoration: line-through;
     font-size: 14px;
     color: rgba(169, 169, 169, 0.8);
 }
-.price .st{
+
+.price .st {
     vertical-align: top;
     display: inline-block;
     color: #04ce00;
     font-size: 13px;
     font-weight: 700;
 }
-.addcart{
+
+.addcart {
     width: 100%;
     display: flex;
     align-items: center;

@@ -1,0 +1,78 @@
+.modalcontainer {
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid black; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sizemodal {
+    width: 350px;
+    /* height: 470px; */
+    /* border: 1px solid black; */
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.selectsize {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 10px;
+}
+
+.selection {
+    width: 50%;
+}
+
+.selection label {
+    /* border: 1px solid black; */
+    display: block;
+    width: 100%;
+}
+
+.selection select {
+    /* border: 1px solid black; */
+    display: block;
+    width: 100%;
+}
+
+.cardlike {
+    /* border: 1px solid black; */
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: black;
+    background-color: white;
+}
+
+.addcart {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+    background: #d9d9d9;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1px solid #e1e1e1;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0 5px 0;
+}

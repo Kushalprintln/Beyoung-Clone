@@ -1,14 +1,17 @@
+// IMPORTING REACT AND CSS
 import React from "react";
-import nav from '../images/CheckoutNav.png'
-import footer from '../images/CheckoutFooter.png'
 import styles from './Checkout.module.css';
+
+// IMPORTING ROUTER HOOKS
 import { Outlet } from "react-router-dom";
-export default function Checkout(){
+
+// CHEKCOUT LAYOUT
+export default function Checkout() {
     return (
         <div className={styles.checkout}>
-            <img src={nav} className={styles.nav} alt="" />
-            <Outlet/>
-            <img src={footer} className={styles.foot} alt="" />
+            {/* <img src={nav} className={styles.nav} alt="" /> */}
+            <Outlet />
+            {/* <img src={footer} className={styles.foot} alt="" /> */}
         </div>
     )
 }

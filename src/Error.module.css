@@ -1,7 +1,8 @@
-.error{
-   text-align: center;
+.error {
+    text-align: center;
 }
-.errorh{
+
+.errorh {
     font-size: 150px;
     font-weight: 500;
     margin: 0;
@@ -10,4 +11,4 @@
     -webkit-background-clip: text;
     background-clip: text;
     text-transform: uppercase;
-} 
+}

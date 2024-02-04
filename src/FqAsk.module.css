@@ -1,28 +1,33 @@
-.fqcontainer{
+.fqcontainer {
     max-width: 1350px;
     margin: 10px auto;
     cursor: pointer;
-
 }
-.heading h2,.hidden h4{
-    color: #ffdd00 ;
+
+.heading h2,
+.hidden h4 {
+    color: #ffdd00;
     text-transform: uppercase;
 }
-.heading h2{
+
+.heading h2 {
     font-size: 24px;
 }
-.heading{
+
+.heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 @media screen and (max-width: 720px) {
-    .heading h2{
+    .heading h2 {
         font-size: 20px;
     }
 }
+
 @media screen and (max-width: 550px) {
-    .heading h2{
+    .heading h2 {
         font-size: 16px;
     }
 }

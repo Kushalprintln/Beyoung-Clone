@@ -1,7 +1,8 @@
-.navtwo{
+.navtwo {
     padding: 10px;
 }
-.fixed{
+
+.fixed {
     padding: 10px;
     position: fixed;
     z-index: 100;
@@ -10,16 +11,20 @@
     top: 0;
     animation: 0.5s linear 0s slidedown;
 }
+
 @keyframes slidedown {
-    from{
+    from {
         transform: translateY(-100%);
         opacity: 0;
-    }to{
+    }
+
+    to {
         transform: translateY(0);
         opacity: 1;
     }
 }
-.container{
+
+.container {
     max-width: 1350px;
     margin: 0 auto;
     padding: 0 15px;
@@ -29,53 +34,64 @@
     justify-content: space-between;
     position: relative;
 }
-.logo{
+
+.logo {
     width: 150px;
     margin-right: 10px;
 }
-.left{
+
+.left {
     display: flex;
     align-items: center;
 }
-.left img{
+
+.left img {
     cursor: pointer;
 }
-.menu{
+
+.menu {
     display: flex;
 }
-.menu li{
+
+.menu li {
     list-style: none;
     padding: 12px 20px;
     font-weight: 700;
     cursor: pointer;
 }
-.menu li:hover{
+
+.menu li:hover {
     background-color: #f9eb28;
 }
-.right{
- font-size: 20px;
- display: flex;
- gap: 16px;
+
+.right {
+    font-size: 20px;
+    display: flex;
+    gap: 16px;
 }
+
 @media screen and (max-width: 1130px) {
-    .menu li{
+    .menu li {
         font-size: 14px;
         padding: 12px 10px;
         font-weight: 700;
     }
-    .right{
+
+    .right {
         font-size: 15px;
     }
 }
+
 @media screen and (max-width: 480px) {
-    .menubtn{
+    .menubtn {
         display: flex;
         background: none;
         border: none;
         font-size: 15px;
         cursor: pointer;
     }
-    .container{
+
+    .container {
         padding: 0 0;
     }
 }

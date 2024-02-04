@@ -1,14 +1,16 @@
-.filterbtn{
- /* border: 1px solid black; */
- margin: 10px 0;
- cursor: pointer;
+.filterbtn {
+    /* border: 1px solid black; */
+    margin: 10px 0;
+    cursor: pointer;
 }
-.filheading{
+
+.filheading {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.filheading span{
+
+.filheading span {
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -17,26 +19,29 @@
     color: #434343;
     text-transform: uppercase;
 }
-.colfilter{
+
+.colfilter {
     margin: 5px 0;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-.sizefilter,.pricefilter{
+
+.sizefilter,
+.pricefilter {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
+
 @media screen and (max-width: 720px) {
-    .filterbtn{
+    .filterbtn {
         /* border: 1px solid black; */
         margin: 10px 0;
         cursor: pointer;
         width: 30%;
     }
-    
+
 }
-@media screen and (max-width: 480px) {
-    
-}
+
+@media screen and (max-width: 480px) {}

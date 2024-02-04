@@ -1,9 +1,10 @@
-.searchcontainer{
+.searchcontainer {
     display: flex;
     gap: 25px;
 }
+
 @media screen and (max-width: 720px) {
-    .searchcontainer{
+    .searchcontainer {
         display: flex;
         gap: 25px;
         flex-direction: column;

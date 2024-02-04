@@ -1,44 +1,57 @@
+// IMPORTING REACT, HOOKS AND STYLES
 import React, { useEffect, useState } from "react";
-import MainContainer from "./MainContainer";
-import safeDeliveryImage from '../images/safedelivery.png'
 import styles from './Productpage.module.css';
+
+// IMPORTING OTHER COMPONENTS
+import MainContainer from "./MainContainer";
 import Description from "./Description";
-import MainCarousal from "./MainCarousal";
-import { useLocation, useParams } from "react-router-dom";
 import Images from "./Images";
-export default function ProductPage(){
+
+// IMPORTING SAFE DELIVERY IMAGE
+import safeDeliveryImage from '../images/safedelivery.png'
+
+// IMPORTING REACT ROUTER HOOKS
+import { useLocation, useParams } from "react-router-dom";
+
+// PRODUCT PAGE COMPONENT
+export default function ProductPage() {
+    // USING PARAMS FOR GETTING THE PRODUCT
     const params = useParams();
-    const [ProductData,setProData] = useState();
-    const [imgarr,setImgArr] =useState([]);
 
-    // console.log(params);
+    // STATE FOR SETTING PRODUCT DATA AND IMAGE ARRAY FOR THE FINAL DISPLAY
+    const [ProductData, setProData] = useState();
+    const [imgarr, setImgArr] = useState([]);
 
+    // REQUIRMENTS FOR MAKING THE API CALL
     const URL = `https://academics.newtonschool.co/api/v1/ecommerce/product/${params.productID}`;
-    const header = {projectId:'f104bi07c490'};
+    const header = { projectId: 'f104bi07c490' };
 
-    async function gettingProduct(){
-        const resp = await fetch(URL,{
-            method:'GET',
+    // GETTING THE PRODUCT DATA
+    async function gettingProduct() {
+        const resp = await fetch(URL, {
+            method: 'GET',
             headers: header
         })
         const Data = await resp.json();
-        // console.log(Data.data);
         setProData(Data.data);
-        setImgArr([Data.data.displayImage,...Data.data.images])
+        setImgArr([Data.data.displayImage, ...Data.data.images])
     }
-    useEffect(()=>{
+
+    // USEEFEECT
+    useEffect(() => {
         window.scrollTo(0, 0);
         gettingProduct();
-    },[])
+    }, [])
+
     return (
-    <>
-    <MainContainer>
-        <div className={styles.productdetail}>
-            <Images img={imgarr} />
-            <Description  data={ProductData}/>
-        </div>
-        <img src={safeDeliveryImage} alt="" />
-    </MainContainer>
-    </>
+        <>
+            <MainContainer>
+                <div className={styles.productdetail}>
+                    <Images img={imgarr} />
+                    <Description data={ProductData} />
+                </div>
+                <img src={safeDeliveryImage} alt="" />
+            </MainContainer>
+        </>
     )
 }

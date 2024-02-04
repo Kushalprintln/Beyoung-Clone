@@ -1,33 +1,42 @@
-.carousal{
+.carousal {
     display: flex;
     position: relative;
 }
-.btndivleft,.btndivright{
+
+.btndivleft,
+.btndivright {
     position: absolute;
     z-index: 3;
     display: flex;
     height: 100%;
     align-items: center;
 }
-.btndivleft{
+
+.btndivleft {
     left: 0;
 }
-.btndivright{
+
+.btndivright {
     right: 0;
 }
-.leftbtn,.rightbtn{
+
+.leftbtn,
+.rightbtn {
     border: none;
     display: flex;
     cursor: pointer;
 }
-.carousalContainer{
+
+.carousalContainer {
     overflow-y: auto;
     scroll-behavior: smooth;
 }
-.carousalContainer::-webkit-scrollbar{
+
+.carousalContainer::-webkit-scrollbar {
     display: none;
 }
-.innerContainer{
+
+.innerContainer {
     width: fit-content;
     display: flex;
     gap: 20px;

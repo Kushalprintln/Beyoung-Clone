@@ -1,8 +1,9 @@
-.footerCol{
+.footerCol {
     color: #ffdd00;
     min-width: fit-content;
 }
-.footerCol h3{
+
+.footerCol h3 {
     color: #ffdd00;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -10,10 +11,12 @@
     /* font-size: 18.72px; */
     cursor: pointer;
 }
-.footerCol ul{
+
+.footerCol ul {
     text-align: left;
 }
-.footerCol li{
+
+.footerCol li {
     list-style: none;
     color: white;
     text-transform: capitalize;
@@ -22,19 +25,23 @@
     padding: 5px 0;
     cursor: pointer;
 }
+
 @media screen and (max-width: 900px) {
     .footerCol {
         text-align: center;
     }
-    .footerCol h3{
+
+    .footerCol h3 {
         text-align: center;
     }
-    .footerCol ul{
+
+    .footerCol ul {
         text-align: center;
     }
 }
+
 @media screen and (max-width: 550px) {
-    .footerCol h3{
+    .footerCol h3 {
         font-size: 16px;
     }
 }

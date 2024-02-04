@@ -1,31 +1,36 @@
-.addsection{
+.addsection {
     width: 70%;
     background: #f5f4f4;
     border-radius: 25px;
     padding: 15px 20px;
     margin-bottom: 30px;
-    border: 1px solid rgba(0,0,0,0.1490196078);
+    border: 1px solid rgba(0, 0, 0, 0.1490196078);
 }
-.lines{
+
+.lines {
     margin: 10px 0;
 }
-.addsection p{
+
+.addsection p {
     font-size: 13px;
 }
-.edit{
+
+.edit {
     padding: 5px 0;
     display: flex;
     justify-content: space-between;
 }
-.addsection span{
+
+.addsection span {
     font-size: 14px;
     font-weight: 600;
     font-style: normal;
     color: #1f1f1f;
     cursor: pointer;
 }
+
 @media screen and (max-width: 700px) {
-    .addsection{
+    .addsection {
         width: 100%;
     }
 }
