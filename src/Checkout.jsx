@@ -4,7 +4,7 @@ import styles from './Checkout.module.css';
 
 // IMPORTING ROUTER HOOKS
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Bill from "./bill";
+import Bill from "./Bill";
 
 // IMPORTING TRACKING IMAGES
 import cartimg from '../images/Cart.png';

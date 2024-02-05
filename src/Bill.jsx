@@ -83,7 +83,6 @@ export default function Bill({ execute }) {
                     <button className={styles.chekout} onClick={execute}>CHECKOUT SECURELY</button>
                 </div>
             </div>
-
         )
     }
 }
