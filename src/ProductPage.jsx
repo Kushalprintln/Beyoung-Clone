@@ -1,6 +1,6 @@
 // IMPORTING REACT, HOOKS AND STYLES
 import React, { useEffect, useState } from "react";
-import styles from './Productpage.module.css';
+import styles from './ProductPage.module.css';
 
 // IMPORTING OTHER COMPONENTS
 import MainContainer from "./MainContainer";
