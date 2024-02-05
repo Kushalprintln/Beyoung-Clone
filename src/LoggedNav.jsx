@@ -14,7 +14,7 @@ export default function LoggedNav({ close, lf }) {
     //INITILIZING AUTHENTICATIO
     const Authentication = useContext(AuthContext);
     // console.log(Authentication)
-    const namearr = Authentication.data[0].name.split(" ")
+    // const namearr = Authentication.data[0].name.split(" ")
 
 
 
@@ -38,7 +38,7 @@ export default function LoggedNav({ close, lf }) {
         <div className={lf === 'phone' ? styles.lognavfix : styles.lognav}>
             {lf === 'phone' && <div className={styles.slidebtn} onClick={() => { close(false) }}><FaAngleLeft /></div>}
             <div className={styles.profilelogo}>
-                <div className={styles.initials}>{`${namearr[0].charAt(0)}${namearr[1].charAt(0)}`}</div>
+                <div className={styles.initials}>{`${Authentication.data[0].name.charAt(0)}${Authentication.data[0].name.charAt(1)}`}</div>
                 <div className={styles.name}>{Authentication.data[0].name}</div>
                 <div className={styles.beyoungster}>#Beyoungster</div>
             </div>
