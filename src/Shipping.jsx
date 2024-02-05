@@ -2,9 +2,6 @@
 import React, { useContext, useState } from "react";
 import styles from './Shipping.module.css';
 
-// iMPORTING BILL COMPONENT
-import Bill from "./bill";
-
 // IMPORTING IMAGE
 import add from '../images/address.png'
 
