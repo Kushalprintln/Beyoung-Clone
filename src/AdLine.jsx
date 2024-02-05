@@ -1,6 +1,6 @@
 // IMPORTING REACT AND CSS;
 import React from "react";
-import styles from './Adline.module.css';
+import styles from './AdLine.module.css';
 
 // ADLINE COMPONENT
 export default function AdLine() {
