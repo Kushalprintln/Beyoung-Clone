@@ -42,7 +42,7 @@ export default function NavOne() {
     function signout() {
         Authentication.status[1](false);
         Authentication.jws[1]('')
-        Authentication.data[1]('');
+        Authentication.data[1]({name:""});
         Authentication.wish[1]([]);
         Authentication.cart[1]({ items: [] });
         localStorage.removeItem('user');

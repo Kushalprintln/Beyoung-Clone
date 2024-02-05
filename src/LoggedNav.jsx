@@ -16,6 +16,8 @@ export default function LoggedNav({ close, lf }) {
     // console.log(Authentication)
     const namearr = Authentication.data[0].name.split(" ")
 
+
+
     // ACTIVE STYLES
     const navstyle = ({ isActive }) => ({
         font: 'inherit',
@@ -30,6 +32,7 @@ export default function LoggedNav({ close, lf }) {
             close(false);
         }
     }
+    
 
     return (
         <div className={lf === 'phone' ? styles.lognavfix : styles.lognav}>
