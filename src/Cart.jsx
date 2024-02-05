@@ -5,7 +5,6 @@ import styles from './Cart.module.css'
 // IMPORTING OTHER COMPONENTS;
 import cart from '../images/Cart.png'
 import Cartcard from "./Cartcard";
-import Bill from "./bill";
 
 // IMPORTING CONTEXT;
 import AuthContext from "./AuthContext";
