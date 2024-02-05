@@ -1,3 +1,18 @@
+.upper {
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px;
+}
+
+.bill h3 {
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 0 15px;
+    color: #222;
+    border-bottom: 1px solid #ddd;
+}
+
+
 .total,
 .discount,
 .shipping,
@@ -5,13 +20,39 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 10px 0;
+    margin: 20px 0;
+}
+
+.upper {
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 .upper span {
     display: inline-block;
     font-size: 14px;
     letter-spacing: 0.8px;
+}
+
+.lower {
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.yousave {
+    background: #4caf50;
+    font-size: 15px;
+    margin: 10px 0 10px;
+    color: #fff;
+    letter-spacing: 0.8px;
+    text-align: center;
+    font-weight: 550;
 }
 
 .finalprice {
@@ -30,4 +71,5 @@
     color: #fff;
     font-weight: 600;
     text-transform: uppercase;
+    border: none;
 }

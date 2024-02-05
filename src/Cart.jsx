@@ -25,19 +25,11 @@ export default function Cart() {
 
     return (
         <div className={styles.cart}>
-            <img src={cart} alt="" />
-            <div className={styles.cartcontainer}>
-                <div className={styles.cardcontainer}>
-                    {
-                        Authentication.cart[0].items.map((ele, idx) => {
-                            return <Cartcard data={ele} key={idx} />
-                        })
-                    }
-                </div>
-                <div className={styles.bill}>
-                    <Bill des={'ship'} />
-                </div>
-            </div>
+            {
+                Authentication.cart[0].items.map((ele, idx) => {
+                    return <Cartcard data={ele} key={idx} />
+                })
+            }
         </div>
     )
 }

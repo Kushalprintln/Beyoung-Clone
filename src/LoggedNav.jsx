@@ -1,13 +1,21 @@
 // IMPORT REACT AND STYLES
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './LoggedNav.module.css'
 
 // IMPORT ROUTER HOOK AND ICON
 import { NavLink } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
 
+// IMPORTING AUTH
+import AuthContext from "./AuthContext";
+
 // LOGGEDNAV COMPONENT
 export default function LoggedNav({ close, lf }) {
+    //INITILIZING AUTHENTICATIO
+    const Authentication = useContext(AuthContext);
+    // console.log(Authentication)
+    const namearr = Authentication.data[0].name.split(" ")
+
     // ACTIVE STYLES
     const navstyle = ({ isActive }) => ({
         font: 'inherit',
@@ -22,12 +30,13 @@ export default function LoggedNav({ close, lf }) {
             close(false);
         }
     }
+
     return (
         <div className={lf === 'phone' ? styles.lognavfix : styles.lognav}>
             {lf === 'phone' && <div className={styles.slidebtn} onClick={() => { close(false) }}><FaAngleLeft /></div>}
             <div className={styles.profilelogo}>
-                <div className={styles.initials}>KS</div>
-                <div className={styles.name}>KUSHAL SONKAMBLE</div>
+                <div className={styles.initials}>{`${namearr[0].charAt(0)}${namearr[1].charAt(0)}`}</div>
+                <div className={styles.name}>{Authentication.data[0].name}</div>
                 <div className={styles.beyoungster}>#Beyoungster</div>
             </div>
             <div className={styles.navigation}>

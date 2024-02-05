@@ -1,3 +1,7 @@
 .payment {
     border: none;
 }
+
+.payment img {
+    width: 100%;
+}

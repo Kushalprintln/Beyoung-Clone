@@ -1,22 +1,33 @@
 .shipping {
-    border: none;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
 }
-
-.shipping img {
-    width: 100%;
+.addheading{
+    color: #424242;
+    font-size: 21px;
+    font-weight: 600;
 }
-
-.shippingcontainer {
-    width: 80%;
-    margin: 10px auto;
+.addressform{
+    /* border: 1px solid black; */
+    margin-top: 10px;
+}
+.addressform{
+display: flex;
+gap: 15px;
+flex-direction: column;
+}
+.fromRow{
+    /* border: 1px solid black; */
     display: flex;
     gap: 20px;
 }
-
-.formcontainer {
-    width: 60%;
-}
-
-.billContainer {
-    width: 40%;
+.fromRow input{
+    width: 50%;
+    padding: 10px;
+    font-size: 15px;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0px 0 10px;
 }

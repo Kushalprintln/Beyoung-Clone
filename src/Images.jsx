@@ -3,7 +3,7 @@ import './ImageStyles.css'
 
 export default function Images({img}) {
 const imgArr = [...img];
-console.log(imgArr)
+// console.log(imgArr)
  const data = [
     {
       image: imgArr[0],

@@ -3,13 +3,14 @@ import React from "react";
 import styles from './Payment.module.css';
 
 // IMPORING PAYIMAGE
-import pay from '../images/payment.png'
+import checkpay from '../images/checkoutPay.png'
 
 // PAYMENT COMPONENT
 export default function Payment() {
     return (
         <div className={styles.payment}>
-            <img src={pay} alt="" />
+            <p>This payment is the dummy page</p>
+            <img src={checkpay} alt="" />
         </div>
     )
 }

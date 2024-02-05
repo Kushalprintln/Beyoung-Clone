@@ -60,18 +60,6 @@ export default function Card({ br, data }) {
         const addwish = await resp.json();
         if (resp.ok) {
             Authentication.wish[1](prev => [...prev, product._id]);
-            // DISPLAYING TOSTER IF ADD IN WISHLIST SUCCESSFULLY
-            // toast.success('🦄 Wow so easy!', {
-            //     position: "bottom-center",
-            //     autoClose: 1500,
-            //     hideProgressBar: false,
-            //     closeOnClick: false,
-            //     pauseOnHover: false,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "light",
-            //     // transition: Zoom,
-            //     });
         }
     }
 
