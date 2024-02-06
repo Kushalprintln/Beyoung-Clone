@@ -1,20 +1,32 @@
 // IMPORTING REACT, STYLES AND HOOKS
-import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import styles from './MyAccount.module.css';
 
 // IMPORTING OTHER COMPONENTS
 import MainContainer from "./MainContainer";
 import LoggedNav from "./LoggedNav";
 
+// IMPORTING AUTHENTICATION
+import AuthContext from "./AuthContext";
+
 // IMPORING ICON 
 import { FaAngleRight } from "react-icons/fa6";
 
 // MYACCOUNT COMPONENT
 export default function MyAccount() {
+
+    // INITILIZING AUTHENTICATION
+    const Authentication = useContext(AuthContext);
+    // console.log(Authentication);
+    const navigate = useNavigate();
+
+
     // DECLEARING STATE FOR SIDE SLIDING FOR PHONE
     const [navVisiable, setNavVisiabl] = useState(true);
     const [loadfor, setLoadFor] = useState('');
+
+    // SCREEN FUNCTION FOR RESPONSIVNESS
     function screen() {
         if (window.innerWidth < 700) {
             setLoadFor('phone');
@@ -36,6 +48,13 @@ export default function MyAccount() {
             window.removeEventListener("resize", screen);
         };
     }, [])
+
+    // FOR NAVIGATING BACK TO HOME WHEN LOGGED OUT
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            navigate('/');
+        }
+    }, [Authentication.status[0]]);
 
     return (
         <MainContainer>

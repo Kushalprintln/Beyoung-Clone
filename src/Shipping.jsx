@@ -1,9 +1,6 @@
 // IMPORTING REACT AND HOOKS AND CSS
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from './Shipping.module.css';
-
-// IMPORTING IMAGE
-import add from '../images/address.png'
 
 // IMPORTING AUTHENTICATION
 import AuthContext from "./AuthContext";

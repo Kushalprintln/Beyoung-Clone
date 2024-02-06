@@ -13,10 +13,18 @@ import AuthContext from "./AuthContext";
 export default function LoggedNav({ close, lf }) {
     //INITILIZING AUTHENTICATIO
     const Authentication = useContext(AuthContext);
-    // console.log(Authentication)
-    // const namearr = Authentication.data[0].name.split(" ")
 
+    // STATE FOR NAMEINITIALS FOR THE PROFILE CIRCLE
+    const [namein,setNamein] = useState('');
 
+    //SETTING NAME INITIALS
+    function name(){
+        // Authentication.
+        let Name = Authentication.data[0].name.split(' ');
+        let initials = `${Name[0].charAt(0)}${Name[1].charAt(0)}`
+        console.log(initials)
+        setNamein(initials);
+    }
 
     // ACTIVE STYLES
     const navstyle = ({ isActive }) => ({
@@ -26,19 +34,37 @@ export default function LoggedNav({ close, lf }) {
         color: isActive ? '#000' : 'inherit',
         fontWeight: isActive ? '600' : '400',
     });
+
     // COMPRESSING SIDE NAV IF PHONE MODE
     function closeOnlyPhone() {
         if (lf === 'phone') {
             close(false);
         }
     }
+
+    // SIGNOUT FUNCTION;
+    function signout() {
+        Authentication.status[1](false);
+        Authentication.jws[1]('')
+        Authentication.data[1]('');
+        Authentication.wish[1]([]);
+        Authentication.cart[1]({ items: [] });
+        localStorage.removeItem('user');
+    }
+
+    //  SETTING INITIAL ONLY WHEN LOGGINED OTHER WISE ERROR IN READING SPLIT METHOD
+    useEffect(()=>{
+        if(Authentication.status[0]){
+            name();
+        }
+    },[Authentication.status[0]])
     
 
     return (
         <div className={lf === 'phone' ? styles.lognavfix : styles.lognav}>
             {lf === 'phone' && <div className={styles.slidebtn} onClick={() => { close(false) }}><FaAngleLeft /></div>}
             <div className={styles.profilelogo}>
-                <div className={styles.initials}>{`${Authentication.data[0].name.charAt(0)}${Authentication.data[0].name.charAt(1)}`}</div>
+                <div className={styles.initials}>{namein}</div>
                 <div className={styles.name}>{Authentication.data[0].name}</div>
                 <div className={styles.beyoungster}>#Beyoungster</div>
             </div>
@@ -50,7 +76,7 @@ export default function LoggedNav({ close, lf }) {
                     <li onClick={closeOnlyPhone}><NavLink to={'wishlist'} style={navstyle}>Wishlist</NavLink></li>
                     <li onClick={closeOnlyPhone}><NavLink to={'coupon'} style={navstyle}>Coupon</NavLink></li>
                 </ul>
-                <button className={styles.logoutbtn}>Logout</button>
+                <button className={styles.logoutbtn} onClick={signout}>Logout</button>
             </div>
         </div>
     )

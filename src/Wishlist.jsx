@@ -11,14 +11,10 @@ import AuthContext from "./AuthContext";
 import Wishcard from "./WishCard";
 import SizeModal from "./SizeModal";
 
-// IMPORTING ROUTER HOOKS
-import { useNavigate } from "react-router-dom";
-
 // WISHLIST COMPONENT
 export default function Wishlist() {
     // INITIALLIZING CONTEXT AND NAVIGATION
     const Authentication = useContext(AuthContext);
-    const navigate = useNavigate();
 
     // DECLEARING STATE FOR WISHLIST ARRAY 
     const [wishlist, setWishList] = useState([]);
@@ -46,11 +42,9 @@ export default function Wishlist() {
     }
 
     useEffect(() => {
-        if (!Authentication.status[0]) {
-            navigate('/');
-        } else {
+        if (localStorage.getItem('user')) {
             getwishlist();
-        }
+        } 
     }, [Authentication.status[0]]);
 
     return (

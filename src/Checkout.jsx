@@ -1,5 +1,5 @@
 // IMPORTING REACT AND CSS
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './Checkout.module.css';
 
 // IMPORTING ROUTER HOOKS
@@ -23,9 +23,9 @@ export default function Checkout() {
     // console.log(loc.state)
     const stringArr = loc.pathname.split('/');
     const page = stringArr[2];
-    console.log("page is", page);
+    // console.log("page is", page);
 
-    const naviagate = useNavigate();
+    const navigate = useNavigate();
 
     const Authentication = useContext(AuthContext);
     const token = Authentication.jws[0];
@@ -51,20 +51,20 @@ export default function Checkout() {
     function Checkout() {
         console.log('clicked')
         if (page === 'cart') {
-            naviagate('/checkout/shipping')
+            navigate('/checkout/shipping')
         } else if (page === 'shipping') {
-            console.log("on the shipping page")
-            console.log(add);
+            // console.log("on the shipping page")
+            // console.log(add);
             if (add.street !== "" && add.city !== "" && add.state !== "" && add.country !== "" && add.zipCode !== "") {
                 if (loc.state === null) {
-                    naviagate('/checkout/payment')
+                    navigate('/checkout/payment')
                 }
-                naviagate('/checkout/payment', { state: loc.state })
+                navigate('/checkout/payment', { state: loc.state })
             } else {
                 alert("Improper address");
             }
         } else {
-            console.log("on the payment page")
+            // console.log("on the payment page")
             Order();
             clearAdd();
         }
@@ -102,11 +102,18 @@ export default function Checkout() {
         console.log(resp);
         if (resp.ok) {
             alert(`ORDER PLACED SUCCESSFULLY\nStreet : ${add.street} \nCity : ${add.city} \nState : ${add.state} \nCountry : ${add.country} \nZIP : ${add.zipCode}`)
-            naviagate('/')
+            navigate('/')
         }
         const order = await resp.json();
         // console.log(order);
     }
+
+    // FOR NAVIGATING BACK TO HOME WHEN LOGGED OUT
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            navigate('/');
+        }
+    }, [Authentication.status[0]]);
 
     return (
         <>

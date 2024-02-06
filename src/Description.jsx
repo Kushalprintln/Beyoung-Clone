@@ -78,6 +78,12 @@ export default function Description({ data }) {
         console.log(cart);
         if (resp.ok) {
             Authentication.cart[1]({ ...cart.data });
+            setSize('');
+            setQuantity('');
+        }else{
+            alert("Please signIn to Add Cart Item");
+            setSize('');
+            setQuantity('');
         }
     }
 
@@ -100,14 +106,16 @@ export default function Description({ data }) {
             alert("Select Size and Quantity");
         }else{
             AddCart();
-            setSize('');
-            setQuantity('');
-            
         }
     }
 
     function buynow(){
-        navigate('/checkout/shipping',{state:data.price})
+        if(Authentication.status[0]){
+            navigate('/checkout/shipping',{state:data.price})
+        }
+        else{
+            alert("Please SignIn to Buy This Product");
+        }
     }
 
     return (
@@ -150,6 +158,7 @@ export default function Description({ data }) {
             </div>
             <div className={styles.qntoption}>QTY:
                 <select value={quantity} id="" onChange={(e) => { setQuantity(e.target.value) }} className={styles.sizeSelect}>
+                    <option value={''}>Select</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
