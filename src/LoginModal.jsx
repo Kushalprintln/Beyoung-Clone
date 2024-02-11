@@ -94,9 +94,12 @@ export default function LoginModal({ purpose }) {
             headers: header,
         })
         const wishlist = await resp.json();
-        wishlist.data.items.map((ele) => {
-            Authentication.wish[1](prev => [...prev, ele.products._id])
-        })
+        // console.log(wishlist);
+        if(wishlist.data){
+            wishlist.data.items.map((ele) => {
+                Authentication.wish[1](prev => [...prev, ele.products._id])
+            })
+        }
     }
 
     //  GETTING CARTLIST 
@@ -107,7 +110,10 @@ export default function LoginModal({ purpose }) {
             headers: header,
         })
         const cartList = await resp.json();
-        Authentication.cart[1]({ ...cartList.data, results: cartList.results });
+        // console.log(cartList)
+        if(cartList.data){
+            Authentication.cart[1]({ ...cartList.data, results: cartList.results });
+        }
     }
 
     // VALIDATION
