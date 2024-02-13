@@ -31,3 +31,16 @@ flex-direction: column;
     border-radius: 4px;
     margin: 0px 0 10px;
 }
+.inputContainer{
+    width: 50%;
+    /* border: 1px solid black; */
+}
+.inputContainer input{
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.inputContainer p{
+    width: 100%;
+    font-size: 13px;
+    color: red;
+}

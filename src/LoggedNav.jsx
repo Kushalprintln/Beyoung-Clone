@@ -58,6 +58,7 @@ export default function LoggedNav({ close, lf }) {
         Authentication.wish[1]([]);
         Authentication.cart[1]({ items: [] });
         localStorage.removeItem('user');
+        Authentication.notify[3]("Logged Out");
     }
 
     //  SETTING INITIAL ONLY WHEN LOGGINED OTHER WISE ERROR IN READING SPLIT METHOD

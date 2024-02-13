@@ -1,5 +1,7 @@
 // IMPORT REACT AND CSS
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // IMPORTING REACT AND ROUTER HOOKS;
 import { useEffect, useState } from 'react';
@@ -80,16 +82,35 @@ function App() {
     checkUser();
   }, []);
 
+  const notifyS = (message) => toast.success(message);
+  const notifyE = (message) => toast.error(message);
+  const notifyI = (message) => toast.info(message);
+  const notifyW = (message) => toast.warn(message);
+
   //  APP COMPONENT
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        // transition: 'Zoom',
+        />
       <AuthContext.Provider value={{
         loginmodal: [setmodal, setperpose],
         status: [login, setlogin],
         data: [loginData, setLogInData],
         jws: [JWS, SetJWS],
         wish: [locwish, setlocwish],
-        cart: [loccart, setlocCart]
+        cart: [loccart, setlocCart],
+        notify:[notifyS,notifyE,notifyI,notifyW]
       }}>
         <AdLine />
         <NavOne />

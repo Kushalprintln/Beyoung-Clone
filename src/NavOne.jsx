@@ -46,6 +46,7 @@ export default function NavOne() {
         Authentication.wish[1]([]);
         Authentication.cart[1]({ items: [] });
         localStorage.removeItem('user');
+        Authentication.notify[3]("Logged Out");
     }
     
     return (

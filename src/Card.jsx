@@ -59,6 +59,7 @@ export default function Card({ br, data }) {
         })
         const addwish = await resp.json();
         if (resp.ok) {
+            Authentication.notify[0]("Added To Cart Successfully");
             Authentication.wish[1](prev => [...prev, product._id]);
         }
     }
@@ -73,6 +74,7 @@ export default function Card({ br, data }) {
         const delwish = await resp.json();
         console.log(delwish);
         if (resp.ok) {
+            Authentication.notify[2]("Removed From WishList");
             let temp = Authentication.wish[0].filter((ele) => {
                 return ele !== product._id;
             })

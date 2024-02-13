@@ -28,6 +28,14 @@ export default function LoginModal({ purpose }) {
             appType: "ecommerce"
         }
     );
+    const [fromErrors,setFormErrors] = useState({
+        name:false,
+        email:false,
+        pass:false,
+        nameError:'Please Enter a Valid Name',
+        emailError:'Please Enter a Valid Email',
+        passError:'Please Enter a Valid Password'
+    })
 
     // REQUIRMENTS;
     const baseUrl = 'https://academics.newtonschool.co/';
@@ -46,13 +54,17 @@ export default function LoginModal({ purpose }) {
         })
         const failmsg = await resp.json();
         if (resp.ok) {
-            alert("SignUp Successful\n Please LogIn");
+            // alert("SignUp Successful\n Please LogIn");
+            Authentication.notify[0]("SignUp Successful");
             clearSingInform();
-            Authentication.loginmodal[1]('login');
+            resetErroes();
+            Authentication.loginmodal[1]('login'); 
         }
         else {
-            alert(`${failmsg.message}\n Please LogIn`);
+            // alert(`${failmsg.message}\n Please LogIn`);
+            Authentication.notify[1](`${failmsg.message}\n Please LogIn`);
             clearSingInform();
+            resetErroes();
             Authentication.loginmodal[1]('login');
         }
     }
@@ -67,8 +79,10 @@ export default function LoginModal({ purpose }) {
         })
         const logindata = await resp.json();
         if (resp.ok) {
-            alert("Login Successful");
+            // alert("Login Successful");
+            Authentication.notify[0]("Login Successful");
             clearLogInform();
+            resetErroes();
             Authentication.loginmodal[0](false);
             Authentication.status[1](true);
             Authentication.jws[1](logindata.token)
@@ -78,10 +92,11 @@ export default function LoginModal({ purpose }) {
             getwishlist();
             getCartList();
         } else {
-            alert(`${logindata.message}`);
+            // alert(`${logindata.message}`);
+            Authentication.notify[1](`${logindata.message}`);
             clearLogInform();
+            resetErroes();
             Authentication.loginmodal[0](false);
-
         }
     }
 
@@ -116,29 +131,112 @@ export default function LoginModal({ purpose }) {
         }
     }
 
-    // VALIDATION
+    // FORM VALIIDATION FOR LOGIN
+    function loginEmailValidation(){
+        if(loginDetails.email === ''){
+            setFormErrors(prev => {return {...prev,email:true}});
+            return false;
+        }
+        else if(!loginDetails.email.includes('@')){
+            setFormErrors(prev => {return {...prev,email:true,emailError:"Email Should Contain @"}})
+            return false;
+        }
+        setFormErrors(prev => {return {...prev,email:false}});
+        return true;
+    }
+    function loginPassValidation(){
+        if(loginDetails.password === ''){
+            setFormErrors(prev => {return {...prev,pass:true}});
+            return false;
+        }
+        else if(loginDetails.password.length < 4 || loginDetails.password.length > 12){
+            setFormErrors(prev => {return {...prev,pass:true,passError:'Password must be between 4 to 12 character'}});
+            return false;
+        }
+        setFormErrors(prev => {return {...prev,pass:false}});
+        return true;
+    }
+    function loginValidation(){
+        loginEmailValidation();
+        loginPassValidation();
+        if(loginEmailValidation() && loginPassValidation()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+//   FORM VALIDATION FOR SIGNUP
+    function signUpNameValidation(){
+        if(signUpDetails.name === ''){
+            setFormErrors(prev => {return {...prev,name:true}});
+            return false;
+        }else if(signUpDetails.name.length < 4){
+            setFormErrors(prev => {return {...prev,name:true,nameError:'Name must be more than 4 character'}});
+            return false;
+        }
+        setFormErrors(prev => {return {...prev,name:false}});
+        return true;
+    }
+
+    function signUpEmailValidation(){
+        if(signUpDetails.email === ''){
+            setFormErrors(prev => {return {...prev,email:true}});
+            return false;
+        }
+        else if(!signUpDetails.email.includes('@')){
+            setFormErrors(prev => {return {...prev,email:true,emailError:"Email Should Contain @"}})
+            return false;
+        }
+        setFormErrors(prev => {return {...prev,email:false}});
+        return true;
+    }
+
+    function signUpPassValidation(){
+        if(signUpDetails.password === ''){
+            setFormErrors(prev => {return {...prev,pass:true}});
+            return false;
+        }
+        else if(signUpDetails.password.length < 4 || signUpDetails.password.length > 12){
+            setFormErrors(prev => {return {...prev,pass:true,passError:'Password must be between 4 to 12 character'}});
+            return false;
+        }
+        setFormErrors(prev => {return {...prev,pass:false}});
+        return true;
+    }
+
+    function signUpValidation(){
+        signUpNameValidation();
+        signUpEmailValidation();
+        signUpPassValidation();
+        if(signUpNameValidation() && signUpEmailValidation() && signUpPassValidation()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // EXECUTE
     function execute(event) {
         event.preventDefault();
         if (purpose === "login") {
-            if (loginDetails.email === '' || loginDetails.password === '') {
-                alert('Invalid Input');
-                return;
-            }
-            try {
-                Login();
-            } catch (e) {
+            if (loginValidation()) {
+                try {
+                    Login();
+                } catch (e) {
+    
+                }
+            }else{
 
             }
+            
         } else {
-            if (signUpDetails.name === '' || signUpDetails.email === '' || signUpDetails.password === '') {
-                alert('Invalid Input');
-                return;
-            }
-            try {
-                console.log(JSON.stringify(signUpDetails))
-                SignUp();
-            } catch (e) {
-
+            if(signUpValidation()){
+                try {
+                    console.log(JSON.stringify(signUpDetails))
+                    SignUp();
+                } catch (e) {
+    
+                }
             }
         }
     }
@@ -150,6 +248,16 @@ export default function LoginModal({ purpose }) {
     function clearLogInform() {
         setLoginDetails(prev => { return { ...prev, email: "", password: "", } })
     }
+    function resetErroes(){
+        setFormErrors({
+        name:false,
+        email:false,
+        pass:false,
+        nameError:'Please Enter a Valid Name',
+        emailError:'Please Enter a Valid Email',
+        passError:'Please Enter a Valid Password'
+        })
+    }
     return (
         <div className={styles.modalcontainer}>
             <div className={styles.modal}>
@@ -157,17 +265,22 @@ export default function LoginModal({ purpose }) {
                 <img src={loginImg} alt="" />
                 <form action="" className={styles.loginform}>
                     {purpose === "login" ? <h2>Login</h2> : <h2>Sign Up</h2>}
-                    <p>Get Exciting Offers & Track Order</p>
+                    <p className={styles.offer}>Get Exciting Offers & Track Order</p>
                     {purpose === "login" ?
                         <>
                             <input type="email" value={loginDetails.email} id="email" placeholder="Email" onChange={(e) => { setLoginDetails(prev => { return { ...prev, email: e.target.value } }) }} />
+                            {fromErrors.email && <p className={styles.error}>{fromErrors.emailError}</p>}
                             <input type="password" value={loginDetails.password} id="password" placeholder="Password" onChange={(e) => { setLoginDetails(prev => { return { ...prev, password: e.target.value } }) }} />
+                            {fromErrors.pass && <p className={styles.error}>{fromErrors.passError}</p>}
                         </>
                         :
                         <>
                             <input type="name" value={signUpDetails.name} id="name" placeholder="Full Name" onChange={(e) => { setSignUpDetails(prev => { return { ...prev, name: e.target.value } }) }} />
+                            {fromErrors.name && <p className={styles.error}>{fromErrors.nameError}</p>}
                             <input type="email" value={signUpDetails.email} id="email" placeholder="Email" onChange={(e) => { setSignUpDetails(prev => { return { ...prev, email: e.target.value } }) }} />
+                            {fromErrors.email && <p className={styles.error}>{fromErrors.emailError}</p>}
                             <input type="password" value={signUpDetails.password} id="password" placeholder="Password" onChange={(e) => { setSignUpDetails(prev => { return { ...prev, password: e.target.value } }) }} />
+                            {fromErrors.pass && <p className={styles.error}>{fromErrors.passError}</p>}
                         </>
                     }
                     <button className={styles.loginbtn} onClick={execute}>{purpose === "login" ? `Login` : `SignUp`}</button>

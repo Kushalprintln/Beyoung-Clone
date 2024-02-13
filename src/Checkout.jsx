@@ -49,7 +49,7 @@ export default function Checkout() {
     });
 
     function Checkout() {
-        console.log('clicked')
+        console.log('clicked');
         if (page === 'cart') {
             navigate('/checkout/shipping')
         } else if (page === 'shipping') {
@@ -101,7 +101,8 @@ export default function Checkout() {
         })
         console.log(resp);
         if (resp.ok) {
-            alert(`ORDER PLACED SUCCESSFULLY\nStreet : ${add.street} \nCity : ${add.city} \nState : ${add.state} \nCountry : ${add.country} \nZIP : ${add.zipCode}`)
+            // alert(`ORDER PLACED SUCCESSFULLY\nStreet : ${add.street} \nCity : ${add.city} \nState : ${add.state} \nCountry : ${add.country} \nZIP : ${add.zipCode}`)
+            Authentication.notify[0]("Order Placed Successfully");
             navigate('/')
         }
         const order = await resp.json();

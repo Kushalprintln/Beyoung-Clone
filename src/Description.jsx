@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import styles from './Description.module.css';
 
+
 // IMPORT ICON;
 import Coloricon from "./Coloricon";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -41,6 +42,7 @@ export default function Description({ data }) {
         })
         const addwish = await resp.json();
         if (resp.ok) {
+            Authentication.notify[0]("Added To WishList");
             Authentication.wish[1](prev => [...prev, data1._id]);
         }
     }
@@ -55,6 +57,7 @@ export default function Description({ data }) {
         const delwish = await resp.json();
         console.log(delwish);
         if (resp.ok) {
+            Authentication.notify[2]("Removed From WishList");
             let temp = Authentication.wish[0].filter((ele) => {
                 return ele !== data1._id;
             })
@@ -77,11 +80,13 @@ export default function Description({ data }) {
         const cart = await resp.json();
         console.log(cart);
         if (resp.ok) {
+            Authentication.notify[0]("Added To Cart Successfully");
             Authentication.cart[1]({ ...cart.data });
             setSize('');
             setQuantity('');
         }else{
-            alert("Please signIn to Add Cart Item");
+            // alert("Please signIn to Add Cart Item");
+            Authentication.notify[1]("Error while Adding to Cart")
             setSize('');
             setQuantity('');
         }
@@ -102,8 +107,13 @@ export default function Description({ data }) {
 
     // ADDCART CHECK
     function addcart(){
+        if (!Authentication.status[0]) {
+            Authentication.loginmodal[0](true);
+            return;
+        }
         if(size === '' || quantity === ''){
-            alert("Select Size and Quantity");
+            // alert("Select Size and Quantity");
+            Authentication.notify[1]("Select Size And Quantity");
         }else{
             AddCart();
         }
@@ -114,7 +124,8 @@ export default function Description({ data }) {
             navigate('/checkout/shipping',{state:data.price})
         }
         else{
-            alert("Please SignIn to Buy This Product");
+            // alert("Please SignIn to Buy This Product");
+            Authentication.loginmodal[0](true);
         }
     }
 
@@ -158,7 +169,7 @@ export default function Description({ data }) {
             </div>
             <div className={styles.qntoption}>QTY:
                 <select value={quantity} id="" onChange={(e) => { setQuantity(e.target.value) }} className={styles.sizeSelect}>
-                    <option value={''}>Select</option>
+                    <option value={''}>0</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>

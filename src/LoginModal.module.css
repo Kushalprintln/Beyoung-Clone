@@ -45,8 +45,11 @@
     text-align: left;
     width: 80%;
 }
-
-.loginform p {
+.error{
+    color: red;
+    font-size: 12px;
+}
+.loginform .offer {
     font-size: 12px;
     display: block;
     color: rgba(40, 44, 63, 0.8);
@@ -73,6 +76,7 @@
     color: #fff;
     border: none;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 .modal span {
