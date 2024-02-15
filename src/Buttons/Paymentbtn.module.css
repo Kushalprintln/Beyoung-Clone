@@ -1,0 +1,44 @@
+.paymentbtn{
+    /* border: 1px solid black; */
+    width: 300px;
+    background: #fff;
+    /* border-left: 3px solid #fd0; */
+    color: #222;
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.circle{
+    width: 25px;
+    height: 25px;
+    border: 2px solid #b3b3b3;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 5px;
+}
+.selected{
+    width: 25px;
+    height: 25px;
+    border: 2px solid #45bb00;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 5px;
+}
+.selected::before{
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background: #45bb00;
+    top: 2px;
+    left: 2px;
+
+}
+.paymentbtn img{
+    width: 50px;
+}

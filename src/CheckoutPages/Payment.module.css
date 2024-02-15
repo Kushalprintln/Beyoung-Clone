@@ -1,7 +1,22 @@
 .payment {
     border: none;
+    /* border: 1px solid black; */
 }
 
 .payment img {
     width: 100%;
+}
+.paymentcontainer{
+    display: flex;
+}
+.selectedModecontainer{
+    width: 200px;
+}
+.selectedModecontainer img{
+    width: 200px;
+}
+.heading{
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 18px;
+    font-weight: 600;
 }

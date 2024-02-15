@@ -59,7 +59,7 @@ export default function Card({ br, data }) {
         })
         const addwish = await resp.json();
         if (resp.ok) {
-            Authentication.notify[0]("Added To Cart Successfully");
+            Authentication.notify[0]("Added To WishList");
             Authentication.wish[1](prev => [...prev, product._id]);
         }
     }

@@ -16,7 +16,7 @@ export default function Bill({ execute }) {
     // console.log(Authentication.cart[0])
 
     const loc = useLocation();
-    // console.log(loc.state)
+    console.log(loc.state)
 
     if (loc.state === null) {
         return (
@@ -59,7 +59,7 @@ export default function Bill({ execute }) {
                     <hr />
                     <div className={styles.total}>
                         <span>Total MRP (Inc. of Taxes)</span>
-                        <span>&#x20B9; {`${loc.state}`}</span>
+                        <span>&#x20B9; {`${loc.state[0]}`}</span>
                     </div>
                     <div className={styles.discount}>
                         <span>Beyoung Discount</span>
@@ -71,13 +71,13 @@ export default function Bill({ execute }) {
                     </div>
                     <div className={styles.cart}>
                         <span>Cart Total</span>
-                        <span>&#x20B9; {`${loc.state}`}</span>
+                        <span>&#x20B9; {`${loc.state[0]}`}</span>
                     </div>
                 </div>
                 <div className={styles.lower}>
                     <div className={styles.finalprice}>
                         <strong>Total Amount</strong>
-                        <strong>&#x20B9; {`${loc.state}`}</strong>
+                        <strong>&#x20B9; {`${loc.state[0]}`}</strong>
                     </div>
                     <p className={styles.yousave}>You Saved ₹420 on this order</p>
                     <button className={styles.chekout} onClick={execute}>CHECKOUT SECURELY</button>

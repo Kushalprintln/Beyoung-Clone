@@ -65,7 +65,7 @@ export default function Description({ data }) {
         }
     }
 
-    // 
+    // ADDING PRODUCT TO THE WISHLIST
     async function AddCart() {
         const resp = await fetch(`${baseUrl}${Addcart}`, {
             method: 'PATCH',
@@ -121,7 +121,7 @@ export default function Description({ data }) {
 
     function buynow(){
         if(Authentication.status[0]){
-            navigate('/checkout/shipping',{state:data.price})
+            navigate('/checkout/shipping',{state:[data.price,data._id]})
         }
         else{
             // alert("Please SignIn to Buy This Product");
@@ -148,7 +148,7 @@ export default function Description({ data }) {
                 <span className={styles.discountline}>Extra ₹100 OFF on ₹999 (Code:BEYOUNG100)</span>
             </div>
             <div className={styles.colorselect}>
-                <h1>COLOR : <span>Green</span></h1>
+                <h1>COLOR : <span>{data1.color}</span></h1>
                 <div className={styles.coloroption}>
                     {/* <Coloricon clr='red'/>
                     <Coloricon clr='blue'/>
@@ -161,10 +161,10 @@ export default function Description({ data }) {
                     <span className={styles.sizechart}>SIZE CHART</span>
                 </span>
                 <span className={styles.sizeoption}>
-                    <span onClick={()=>{setSize('S')}} className={size === 'S' && styles.selectedSize}>S</span>
-                    <span onClick={()=>{setSize('M')}} className={size === 'M' && styles.selectedSize}>M</span>
-                    <span onClick={()=>{setSize('L')}} className={size === 'L' && styles.selectedSize}>L</span>
-                    <span onClick={()=>{setSize('XL')}} className={size === 'XL' && styles.selectedSize}>XL</span>
+                    <span onClick={()=>{setSize('S')}} className={size === 'S' ? styles.selectedSize : styles.sizes}>S</span>
+                    <span onClick={()=>{setSize('M')}} className={size === 'M' ? styles.selectedSize : styles.sizes}>M</span>
+                    <span onClick={()=>{setSize('L')}} className={size === 'L' ? styles.selectedSize : styles.sizes}>L</span>
+                    <span onClick={()=>{setSize('XL')}} className={size === 'XL' ? styles.selectedSize : styles.sizes}>XL</span>
                 </span>
             </div>
             <div className={styles.qntoption}>QTY:

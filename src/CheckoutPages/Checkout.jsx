@@ -15,6 +15,7 @@ import paymentimg from '../../images/payment.png';
 import AuthContext from "../Contexts/AuthContext";
 import AddressContext from "../Contexts/AddressContext";
 import Address from "../MyAccoutPages/Address";
+import { ContactsOutlined } from "@mui/icons-material";
 
 // CHEKCOUT LAYOUT
 export default function Checkout() {
@@ -28,6 +29,13 @@ export default function Checkout() {
     const navigate = useNavigate();
 
     const Authentication = useContext(AuthContext);
+    // console.log("this is in the chekcout",Authentication.cart[0].items);
+    Authentication.cart[0].items.map((ele)=>{
+        console.log(ele);
+        console.log(ele.product._id);
+        console.log(ele.quantity);
+    })
+
     const token = Authentication.jws[0];
 
     function settingProgressImage() {
@@ -166,13 +174,24 @@ export default function Checkout() {
             // console.log("on the shipping page")
             if (fromValidation()) {
                 if (loc.state === null) {
-                    navigate('/checkout/payment')
+                    navigate('/checkout/payment');
                 }
-                navigate('/checkout/payment', { state: loc.state })
+                console.log("cheking state in checkout",loc.state);
+                navigate('/checkout/payment', { state: loc.state });
             }
         } else {
-            // console.log("on the payment page")
-            Order();
+            // console.log("on t he payment page")
+            console.log('In the last page',loc.state);
+            if (loc.state === null) {
+                console.log(Authentication.cart[0]);
+                Authentication.cart[0].items.map((ele,idx)=>{
+                    Order(ele.quantity,ele.product._id)
+                })
+                Emptycartitem();
+            }
+            else{
+                Order(1,loc.state[1]);
+            }
             clearAdd();
         }
     }
@@ -189,7 +208,7 @@ export default function Checkout() {
 
 
     // PLACING ORDER FUNCTION
-    async function Order() {
+    async function Order(quantity,productID) {
         // REQUIRMENTS;
         const baseUrl = 'https://academics.newtonschool.co/';
         const getwish = 'api/v1/ecommerce/order';
@@ -199,8 +218,9 @@ export default function Checkout() {
             headers: header,
             body: JSON.stringify(
                 {
-                    "productId": "652675ccdaf00355a78380f8",
-                    "quantity": '2',
+                    // "productId": loc.state ? loc.state[1] : "652675ccdaf00355a78380f8",
+                    "productId": `${productID}`,
+                    "quantity": `${quantity}`,
                     "addressType": "HOME",
                     "address": add
                 }
@@ -210,11 +230,32 @@ export default function Checkout() {
         if (resp.ok) {
             // alert(`ORDER PLACED SUCCESSFULLY\nStreet : ${add.street} \nCity : ${add.city} \nState : ${add.state} \nCountry : ${add.country} \nZIP : ${add.zipCode}`)
             Authentication.notify[0]("Order Placed Successfully");
+            // Authentication.notify[0](loc.state[1]);
             navigate('/')
+        }else{
+            Authentication.notify[1]("Error While Place Order");
         }
         const order = await resp.json();
-        // console.log(order);
+        console.log(order);
     }
+
+        //REQUIRMENTS;
+        
+        // DELET CART ITEM FUNCTION;
+        async function Emptycartitem() {
+            const baseUrl = 'https://academics.newtonschool.co/';
+            const Addcart = `api/v1/ecommerce/cart/`
+            const header = { projectID: 'f104bi07c490', 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+            const resp = await fetch(`${baseUrl}${Addcart}`, {
+                method: 'DELETE',
+                headers: header,
+            })
+            const cart = await resp.json();
+            if (resp.ok) {
+                Authentication.notify[1]("Cart Is now Empty");
+                Authentication.cart[1]({ items: [] });
+            }
+        }
 
     // FOR NAVIGATING BACK TO HOME WHEN LOGGED OUT
     useEffect(() => {
