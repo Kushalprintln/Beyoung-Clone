@@ -20,7 +20,7 @@ import visaI from '../../images/CardsI.jpg'
 import CodI from '../../images/codI.jpg'
 
 
-import Paymentbtn from "../Buttons/paymentbtn";
+import Paymentbtn from "../Buttons/Paymentbtn";
 
 // PAYMENT COMPONENT
 export default function Payment() {
