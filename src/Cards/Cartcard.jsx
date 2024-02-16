@@ -4,6 +4,7 @@ import styles from './Cartcard.module.css';
 
 // IMPORTING CONTEXT
 import AuthContext from "../Contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 // CARTCARD COMPONENT
 export default function Cartcard({ data }) {
@@ -31,6 +32,7 @@ export default function Cartcard({ data }) {
     }
     return (
         <div className={styles.cartcard}>
+            <Link to={`/${data.product._id}`} style={{ textDecoration: 'none' }}>
             <div className={styles.cardDetails}>
                 <img src={data.product.displayImage} alt="" />
                 <div className={styles.cardD}>
@@ -49,6 +51,7 @@ export default function Cartcard({ data }) {
                 </div>
             </div>
             <hr style={{ margin: '5px 0px' }} />
+            </Link>
             <div>
                 <button className={styles.remove} onClick={deletcartitem}>Remove</button>
             </div>

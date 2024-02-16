@@ -8,28 +8,13 @@ import { FaAngleLeft } from "react-icons/fa6";
 
 // IMPORTING AUTH
 import AuthContext from "../Contexts/AuthContext";
+import Initialslogo from "./Initialslogo";
+
 
 // LOGGEDNAV COMPONENT
 export default function LoggedNav({ close, lf }) {
     //INITILIZING AUTHENTICATIO
     const Authentication = useContext(AuthContext);
-
-    // STATE FOR NAMEINITIALS FOR THE PROFILE CIRCLE
-    const [namein,setNamein] = useState('');
-
-    //SETTING NAME INITIALS
-    function name(){
-        // Authentication.
-        if(Authentication.data[0].name.includes(' ')){
-            let Name = Authentication.data[0].name.split(' ');
-            let initials = `${Name[0].charAt(0)}${Name[1].charAt(0)}`
-            setNamein(initials);
-        }else{
-            let name = Authentication.data[0].name;
-            let initials = `${name.charAt(0)}${name.charAt(1)}`
-            setNamein(initials);
-        }
-    }
 
     // ACTIVE STYLES
     const navstyle = ({ isActive }) => ({
@@ -58,19 +43,12 @@ export default function LoggedNav({ close, lf }) {
         Authentication.notify[3]("Logged Out");
     }
 
-    //  SETTING INITIAL ONLY WHEN LOGGINED OTHER WISE ERROR IN READING SPLIT METHOD
-    useEffect(()=>{
-        if(Authentication.status[0]){
-            name();
-        }
-    },[Authentication.status[0]])
-    
 
     return (
         <div className={lf === 'phone' ? styles.lognavfix : styles.lognav}>
             {lf === 'phone' && <div className={styles.slidebtn} onClick={() => { close(false) }}><FaAngleLeft /></div>}
             <div className={styles.profilelogo}>
-                <div className={styles.initials}>{namein}</div>
+                <Initialslogo/>
                 <div className={styles.name}>{Authentication.data[0].name}</div>
                 <div className={styles.beyoungster}>#Beyoungster</div>
             </div>

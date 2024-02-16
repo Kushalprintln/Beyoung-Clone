@@ -37,7 +37,7 @@ const h = ['Hoodies for Men - ',
     'Gym Wear - ',
     'Trousers - ',
     'T Shirts - ',
-    'Mens Clothing - ',]
+    'Mens Clothing - ']
 const p = ['Mens Hoodies at Beyoung are made from rigorously sourced cotton fleece fabrics that are insanely soft and light on the skin. Explore our limited range of Hoodies for Men in stylish prints and exceptional comfort. Free Shipping & COD available on all Hoodies online at Beyoung.',
     'Buy Mens Jeans Online in India starting at only ₹998 at Beyoung. Explore Our latest premium quality collection of jeans. Enjoy a special ₹100 Off on selected Denim Jeans. Use coupon code "BEYOUNG100"',
     'However fashionable you are, you cannot deny how mens pajamas are true friends of comfort and style. So, Beyoung has brought to you a happening collection of pyjamas for men Online. Scroll below to have a look at this fabulous collection straight away. Free Shipping. COD Available.',

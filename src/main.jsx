@@ -23,6 +23,7 @@ import Cart from './CheckoutPages/Cart.jsx'
 import Shipping from './CheckoutPages/Shipping.jsx'
 import Payment from './CheckoutPages/Payment.jsx'
 import ErrorPage from './Errorpage/ErrorPage.jsx'
+import ThankYou from './CheckoutPages/ThankYou.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -49,6 +50,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='' element={<ErrorPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
+        <Route path='Thankyou' element={<ThankYou />} />
         <Route path='*' element={<ErrorPage />} />
       </Route>
       <Route path='*' element={<ErrorPage />} />

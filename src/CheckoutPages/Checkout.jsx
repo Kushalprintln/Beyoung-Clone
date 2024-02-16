@@ -223,7 +223,7 @@ export default function Checkout() {
         })
         if (resp.ok) {
             Authentication.notify[0]("Order Placed Successfully");
-            navigate('/')
+            navigate('/Thankyou')
         } else {
             Authentication.notify[1]("Error While Place Order");
         }
@@ -240,7 +240,6 @@ export default function Checkout() {
         })
         const cart = await resp.json();
         if (resp.ok) {
-            Authentication.notify[1]("Cart Is now Empty");
             Authentication.cart[1]({ items: [] });
         }
     }
@@ -280,7 +279,6 @@ export default function Checkout() {
                         <Bill execute={Checkout} />
                     </div>
                 </div>
-                <Homebtn />
             </>
         )
     }

@@ -23,7 +23,7 @@ export default function Bill({ execute }) {
         return (
             <div className={styles.bill}>
                 <div className={styles.upper}>
-                    <h3>PRICE DETAIILS ({Authentication.cart[0].items.length} ITEMS)</h3>
+                    <h3>PRICE DETAILS ({Authentication.cart[0].items.length} ITEMS)</h3>
                     <hr />
                     <div className={styles.total}>
                         <span>Total MRP (Inc. of Taxes)</span>
@@ -56,7 +56,7 @@ export default function Bill({ execute }) {
         return (
             <div className={styles.bill}>
                 <div className={styles.upper}>
-                    <h3>PRICE DETAIILS (Individual ITEMS)</h3>
+                    <h3>PRICE DETAILS (Individual ITEM)</h3>
                     <hr />
                     <div className={styles.total}>
                         <span>Total MRP (Inc. of Taxes)</span>
