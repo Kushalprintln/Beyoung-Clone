@@ -124,7 +124,6 @@ export default function SearchPage() {
         });
         let searchData = await searchResp.json();
         setSearchData(searchData.data);
-        // console.log(searchData.data);
         searchData.data.map((obj) => {
             if (!blankArr.includes(obj.color.toLowerCase())) {
                 blankArr.push(obj.color.toLowerCase());

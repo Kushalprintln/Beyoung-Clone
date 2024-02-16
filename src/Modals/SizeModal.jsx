@@ -42,9 +42,7 @@ export default function SizeModal({ product, close }) {
             }
             )
         })
-        console.log(resp);
         const cart = await resp.json();
-        console.log(cart);
         if (resp.ok) {
             Authentication.cart[1]({ ...cart.data });
         }

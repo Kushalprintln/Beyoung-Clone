@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 // DESCRIPTION COMPONENT
 export default function Description({ data }) {
     const data1 = { ...data };
-    // console.log(data1);
 
     // INITILIZING AUTHENTICATION
     const Authentication = useContext(AuthContext);
@@ -53,9 +52,7 @@ export default function Description({ data }) {
             method: 'DELETE',
             headers: header,
         })
-        console.log(resp);
         const delwish = await resp.json();
-        console.log(delwish);
         if (resp.ok) {
             Authentication.notify[2]("Removed From WishList");
             let temp = Authentication.wish[0].filter((ele) => {
@@ -76,15 +73,13 @@ export default function Description({ data }) {
             }
             )
         })
-        console.log(resp);
         const cart = await resp.json();
-        console.log(cart);
         if (resp.ok) {
             Authentication.notify[0]("Added To Cart Successfully");
             Authentication.cart[1]({ ...cart.data });
             setSize('');
             setQuantity('');
-        }else{
+        } else {
             // alert("Please signIn to Add Cart Item");
             Authentication.notify[1]("Error while Adding to Cart")
             setSize('');
@@ -106,25 +101,23 @@ export default function Description({ data }) {
     }
 
     // ADDCART CHECK
-    function addcart(){
+    function addcart() {
         if (!Authentication.status[0]) {
             Authentication.loginmodal[0](true);
             return;
         }
-        if(size === '' || quantity === ''){
-            // alert("Select Size and Quantity");
+        if (size === '' || quantity === '') {
             Authentication.notify[1]("Select Size And Quantity");
-        }else{
+        } else {
             AddCart();
         }
     }
 
-    function buynow(){
-        if(Authentication.status[0]){
-            navigate('/checkout/shipping',{state:[data.price,data._id]})
+    function buynow() {
+        if (Authentication.status[0]) {
+            navigate('/checkout/shipping', { state: [data.price, data._id] })
         }
-        else{
-            // alert("Please SignIn to Buy This Product");
+        else {
             Authentication.loginmodal[0](true);
         }
     }
@@ -161,10 +154,10 @@ export default function Description({ data }) {
                     <span className={styles.sizechart}>SIZE CHART</span>
                 </span>
                 <span className={styles.sizeoption}>
-                    <span onClick={()=>{setSize('S')}} className={size === 'S' ? styles.selectedSize : styles.sizes}>S</span>
-                    <span onClick={()=>{setSize('M')}} className={size === 'M' ? styles.selectedSize : styles.sizes}>M</span>
-                    <span onClick={()=>{setSize('L')}} className={size === 'L' ? styles.selectedSize : styles.sizes}>L</span>
-                    <span onClick={()=>{setSize('XL')}} className={size === 'XL' ? styles.selectedSize : styles.sizes}>XL</span>
+                    <span onClick={() => { setSize('S') }} className={size === 'S' ? styles.selectedSize : styles.sizes}>S</span>
+                    <span onClick={() => { setSize('M') }} className={size === 'M' ? styles.selectedSize : styles.sizes}>M</span>
+                    <span onClick={() => { setSize('L') }} className={size === 'L' ? styles.selectedSize : styles.sizes}>L</span>
+                    <span onClick={() => { setSize('XL') }} className={size === 'XL' ? styles.selectedSize : styles.sizes}>XL</span>
                 </span>
             </div>
             <div className={styles.qntoption}>QTY:

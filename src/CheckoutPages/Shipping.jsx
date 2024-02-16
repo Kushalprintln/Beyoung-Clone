@@ -12,7 +12,7 @@ export default function Shipping() {
   const Authentication = useContext(AuthContext);
   const token = Authentication.jws[0];
   const Address = useContext(AddressContext);
-  console.log(Address);
+  // console.log(Address);
   // console.log(Authentication.data[0].name);
 
   return (

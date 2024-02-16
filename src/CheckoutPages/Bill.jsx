@@ -16,8 +16,9 @@ export default function Bill({ execute }) {
     // console.log(Authentication.cart[0])
 
     const loc = useLocation();
-    console.log(loc.state)
+    // console.log(loc.state)
 
+    // IF WE ARE GETTINNNG NAVIGATED FROM WISHLIST PAGE THEN THIS WILL RENDER 
     if (loc.state === null) {
         return (
             <div className={styles.bill}>
@@ -51,7 +52,7 @@ export default function Bill({ execute }) {
                 </div>
             </div>
         )
-    } else {
+    } else {  // OTHER WISE IF WE ARE NAVIGATING FROM THE INDIVIDUAL PRODUCT PAGE THEN THIS WILL RENEDER
         return (
             <div className={styles.bill}>
                 <div className={styles.upper}>

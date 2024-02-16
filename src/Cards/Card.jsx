@@ -70,9 +70,9 @@ export default function Card({ br, data }) {
             method: 'DELETE',
             headers: header,
         })
-        console.log(resp);
+        // console.log(resp);
         const delwish = await resp.json();
-        console.log(delwish);
+        // console.log(delwish);
         if (resp.ok) {
             Authentication.notify[2]("Removed From WishList");
             let temp = Authentication.wish[0].filter((ele) => {

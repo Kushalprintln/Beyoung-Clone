@@ -8,7 +8,6 @@ import AuthContext from "../Contexts/AuthContext";
 
 // LOGINMODAL COMPONENT
 export default function LoginModal({ purpose }) {
-    // console.log('LOGIN-MODAL RENDERED');
     // AUTHENTICATION
     const Authentication = useContext(AuthContext);
 
@@ -54,14 +53,12 @@ export default function LoginModal({ purpose }) {
         })
         const failmsg = await resp.json();
         if (resp.ok) {
-            // alert("SignUp Successful\n Please LogIn");
             Authentication.notify[0]("SignUp Successful");
             clearSingInform();
             resetErroes();
             Authentication.loginmodal[1]('login'); 
         }
         else {
-            // alert(`${failmsg.message}\n Please LogIn`);
             Authentication.notify[1](`${failmsg.message}\n Please LogIn`);
             clearSingInform();
             resetErroes();
@@ -79,7 +76,6 @@ export default function LoginModal({ purpose }) {
         })
         const logindata = await resp.json();
         if (resp.ok) {
-            // alert("Login Successful");
             Authentication.notify[0]("Login Successful");
             clearLogInform();
             resetErroes();
@@ -92,7 +88,6 @@ export default function LoginModal({ purpose }) {
             getwishlist();
             getCartList();
         } else {
-            // alert(`${logindata.message}`);
             Authentication.notify[1](`${logindata.message}`);
             clearLogInform();
             resetErroes();
@@ -109,7 +104,6 @@ export default function LoginModal({ purpose }) {
             headers: header,
         })
         const wishlist = await resp.json();
-        // console.log(wishlist);
         if(wishlist.data){
             wishlist.data.items.map((ele) => {
                 Authentication.wish[1](prev => [...prev, ele.products._id])
@@ -125,7 +119,6 @@ export default function LoginModal({ purpose }) {
             headers: header,
         })
         const cartList = await resp.json();
-        // console.log(cartList)
         if(cartList.data){
             Authentication.cart[1]({ ...cartList.data, results: cartList.results });
         }
