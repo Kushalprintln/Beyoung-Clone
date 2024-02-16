@@ -11,12 +11,13 @@ import Images from "../Carousel/Images";
 import safeDeliveryImage from '../../images/safedelivery.png'
 
 // IMPORTING REACT ROUTER HOOKS
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 // PRODUCT PAGE COMPONENT
 export default function ProductPage() {
     // USING PARAMS FOR GETTING THE PRODUCT
     const params = useParams();
+    const navigate = useNavigate();
 
     // STATE FOR SETTING PRODUCT DATA AND IMAGE ARRAY FOR THE FINAL DISPLAY
     const [ProductData, setProData] = useState();
@@ -28,6 +29,7 @@ export default function ProductPage() {
 
     // GETTING THE PRODUCT DATA
     async function gettingProduct() {
+        try{
         const resp = await fetch(URL, {
             method: 'GET',
             headers: header
@@ -35,6 +37,10 @@ export default function ProductPage() {
         const Data = await resp.json();
         setProData(Data.data);
         setImgArr([Data.data.displayImage, ...Data.data.images])
+        }
+        catch(e){
+            navigate('/error/error');
+        }
     }
 
     // USEEFEECT
