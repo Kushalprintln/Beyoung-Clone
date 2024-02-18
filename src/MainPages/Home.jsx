@@ -69,14 +69,13 @@ export default function Home() {
         <HeadingStrip heading='FOR MEN' />
         <CardCarousal data={products} />
         <Paymentslider />
-        {/* <Slider style={{width:'90%',margin:'0 auto'}}/> */}
         <img src={menwomenposter} alt="" />
         <HeadingStrip heading='FOR WOMEN' />
         <CardCarousal data={Womproducts} />
       </MainContainer>
       <FullBanner img={fullbanner} />
       <MainContainer>
-        <HeadingStrip heading='FOR WOMEN' />
+        <HeadingStrip heading='FOR MEN' />
         <CardCarousal data={products} />
         <LogoCarousel />
       </MainContainer>
