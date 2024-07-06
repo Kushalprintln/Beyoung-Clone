@@ -25,6 +25,7 @@ export default function Checkout() {
     const loc = useLocation();
     const stringArr = loc.pathname.split('/');
     const page = stringArr[2];
+    console.log("we are on the ",page);
 
     const navigate = useNavigate();
     const Authentication = useContext(AuthContext);
@@ -279,6 +280,7 @@ export default function Checkout() {
                         <Bill execute={Checkout} />
                     </div>
                 </div>
+                <button onClick={Emptycartitem}>Clear cart</button>
             </>
         )
     }

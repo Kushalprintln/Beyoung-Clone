@@ -49,7 +49,7 @@ export default function LoggedNav({ close, lf }) {
             {lf === 'phone' && <div className={styles.slidebtn} onClick={() => { close(false) }}><FaAngleLeft /></div>}
             <div className={styles.profilelogo}>
                 <Initialslogo/>
-                <div className={styles.name}>{Authentication.data[0].name}</div>
+                <div className={styles.name}>{Authentication.data[0].user.name}</div>
                 <div className={styles.beyoungster}>#Beyoungster</div>
             </div>
             <div className={styles.navigation}>

@@ -45,7 +45,6 @@ export default function NavTwo() {
   // SPLITING CATAGORIES FOR MEN AND WOMENT
   const Mencat = ['hoodie', 'jeans', 'jogger', 'kurta', 'pyjamas', 'shirt', 'shorts', 'sweater', 'tracksuit', 'trouser', 'tshirt']
   const Womencat = ['jeans', 'jumpsuit', 'jogger', 'kurti', 'shirt', 'tshirt'];
-
   function logit() {
     if (window.scrollY > 1) {
       setScrolled(true);

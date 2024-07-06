@@ -30,9 +30,17 @@ export default function Order() {
             headers: header,
         })
         const orderHis = await resp.json();
+        console.log(orderHis.data);
         if(resp.ok){
             setOrderHistory(orderHis.data);
         }
+    }
+
+    function sort(){
+        let temp = orderHistory.sort((a,b)=>{
+            return a.order.items[0].product.price - b.order.items[0].product.price;
+        })
+        setOrderHistory([...temp]);
     }
 
     useEffect(()=>{
@@ -52,6 +60,7 @@ export default function Order() {
             }
             <div>
                 <img src={add} alt="" />
+                <button onClick={sort}>Sort orders Accending</button>
                 <Homebtn text={'Continue Shopping'} />
             </div>
         </div>

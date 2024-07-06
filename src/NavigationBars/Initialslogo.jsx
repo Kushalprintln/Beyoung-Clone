@@ -21,13 +21,13 @@ export default function Initialslogo(){
 
     //SETTING NAME INITIALS
     function name(){
-        // Authentication.
-        if(Authentication.data[0].name.includes(' ')){
-            let Name = Authentication.data[0].name.split(' ');
+        console.log(Authentication.data[0].user.name)
+        if(Authentication.data[0].user.name.includes(' ')){
+            let Name = Authentication.data[0].user.name.split(' ');
             let initials = `${Name[0].charAt(0)}${Name[1].charAt(0)}`
             setNamein(initials);
         }else{
-            let name = Authentication.data[0].name;
+            let name = Authentication.data[0].user.name;
             let initials = `${name.charAt(0)}${name.charAt(1)}`
             setNamein(initials);
         }

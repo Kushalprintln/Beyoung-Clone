@@ -54,7 +54,7 @@ export default function NavOne() {
             <div className={styles.container}>
                 <div className={styles.left}><SlLocationPin size='1.5em' />TRACK YOUR ORDER</div>
                 <div className={styles.right}>
-                    <div className={styles.login} onClick={sigingup}>{Authentication.status[0] ? Authentication.data[0].name : 'LOG IN'}</div>
+                    <div className={styles.login} onClick={sigingup}>{Authentication.status[0] ? Authentication.data[0].user.name : 'LOG IN'}</div>
                     <div className={styles.signup} onClick={loggingin}>{Authentication.status[0] ? 'LOGOUT' : 'SIGNUP'}</div>
                 </div>
             </div>
